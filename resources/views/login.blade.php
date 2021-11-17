@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 </head>
+@if(session('user_id'))
+    <h1>USER LOGGED IN</h1>
+@endif
 <body>
     <h3>Login</h3>
     <form method="post" enctype="multipart/form-data" action="/login">
