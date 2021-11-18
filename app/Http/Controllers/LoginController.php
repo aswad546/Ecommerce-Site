@@ -11,7 +11,7 @@ use RecursiveArrayIterator;
 
 class LoginController extends Controller
 {
-    function login(Request $request){
+    public function login(Request $request){
         $conn = connection::connect_db();
         if($conn)
         {
@@ -25,7 +25,14 @@ class LoginController extends Controller
             if($res && Hash::check($request->password, $res[0]['password'])){
                 Session::put('user_id', $res[0]['id']);
             }
+            $conn = null;
             return redirect('/');
         }
+    }
+    public function logout(){
+        if(Session::has('user_id')){
+            Session::forget('user_id');
+        }
+        return redirect('/');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Connection\connection;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,16 +14,16 @@ class CreateFailedJobsTable extends Migration
      */
     public function up()
     {
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if($conn)
         {
             $sql = "CREATE TABLE if not exists `failed_jobs` (
               `id` bigint(20) UNSIGNED NOT NULL,
-              `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-              `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-              `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-              `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-              `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+              `uuid` varchar(255) NOT NULL,
+              `connection` text NOT NULL,
+              `queue` text NOT NULL,
+              `payload` longtext NOT NULL,
+              `exception` longtext NOT NULL,
               `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 )";
             $conn->exec($sql);
@@ -55,7 +56,7 @@ class CreateFailedJobsTable extends Migration
     public function down()
     {
 //        Schema::dropIfExists('failed_jobs');
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if($conn){
             $sql = "DROP TABLE IF EXISTS failed_jobs";
             $conn->exec($sql);

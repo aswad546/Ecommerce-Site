@@ -1,5 +1,6 @@
 <?php
 
+use App\Connection\connection;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +24,7 @@ class CreatePersonalAccessTokensTable extends Migration
 //            $table->timestamp('last_used_at')->nullable();
 //            $table->timestamps();
 //        });
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if ($conn) {
             $sql = "CREATE TABLE if not exists `personal_access_tokens` (
                     `id` bigint(20) UNSIGNED NOT NULL,
@@ -58,7 +59,7 @@ class CreatePersonalAccessTokensTable extends Migration
     public function down()
     {
 //        Schema::dropIfExists('personal_access_tokens');
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if($conn){
             $sql = "DROP TABLE IF EXISTS personal_access_tokens";
             $conn->exec($sql);

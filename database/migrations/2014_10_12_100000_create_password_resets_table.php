@@ -1,5 +1,6 @@
 <?php
 
+use App\Connection\connection;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,11 +15,11 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if ($conn) {
             $sql = "CREATE TABLE if not exists `password_resets` (
-                    `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                    `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                    `email` varchar(255) NOT NULL,
+                    `token` varchar(255) NOT NULL,
                     `created_at` timestamp NULL DEFAULT NULL
             )";
             $conn->exec($sql);
@@ -46,7 +47,7 @@ class CreatePasswordResetsTable extends Migration
     public function down()
     {
 //        Schema::dropIfExists('password_resets');
-        $conn = connect_db();
+        $conn = connection::connect_db();
         if($conn) {
             $sql = "DROP TABLE IF EXISTS password_resets";
             $conn->exec($sql);
