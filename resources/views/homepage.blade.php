@@ -599,12 +599,11 @@
                         <!-- End .product -->
 
                         <!-- End .product -->
-                        @php $count = 0 @endphp
-                        <div class="owl-stage-outer">
 
+                        <div class="owl-stage-outer">
                             <div class="owl-stage"
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1338px;">
-
+                                @foreach($products as $product)
                                     <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
