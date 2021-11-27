@@ -73,18 +73,21 @@ class VendorController extends Controller
     {
         $conn = connection::connect_db();
         if ($conn) {
-            $name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
-
-            $destinationPath = public_path('\assets\images');
-
-            $request->file('product_image')->move($destinationPath, $name1);
+            $name1 = "";
+            if($request->file('product_image')) {
+                $name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
+                $destinationPath = public_path('\assets\images');
+                $request->file('product_image')->move($destinationPath, $name1);
+            }
+            $product_name = $request->product_name ? "product_name = '$request->product_name'". ($request->file('product_image') || $request->price || $request->quantity ? "," : "") : "";
+            $product_image = $request->file('product_image') ? "product_image = '$name1'". ($request->price || $request->quantity ? "," : "") : "";
+            $product_price = $request->price ? "price = '$request->price'". ($request->quantity ? "," : "") : "";
+            $product_quantity = $request->quantity ? "quantity = '$request->quantity'" : "";
             $sql = "UPDATE products
                     SET
-                        product_name = '$request->product_name',
-                        product_image = '$name1',
-                        price = '$request->price',
-                        quantity = '$request->quantity'
+                        $product_name $product_image $product_price $product_quantity
                     WHERE product_id = $id";
+
             $conn->exec($sql);
             $conn = null;
         }

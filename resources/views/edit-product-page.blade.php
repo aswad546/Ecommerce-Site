@@ -163,15 +163,15 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Product Name</label>
-                                        <input type="text" name="product_name" placeholder="Product Name" class="form-control" required>
+                                        <input type="text" name="product_name" placeholder="Product Name" class="form-control" >
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Product Price</label>
-                                        <input type="text" name="price" placeholder="Product Price" class="form-control" required>
+                                        <input type="text" name="price" placeholder="Product Price" class="form-control" >
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Quantity</label>
-                                        <input type="text" name="quantity" placeholder="Quantity" class="form-control" required>
+                                        <input type="text" name="quantity" placeholder="Quantity" class="form-control" >
                                     </div>
                                     <div class="mb-4">
                                         <label for="formFileSm" class="form-label">Upload image</label>
@@ -181,9 +181,10 @@
                                         <button class="btn btn-primary" type="submit">
                                             Save
                                         </button>
-                                        <button class="btn btn-secondary">
+                                        <a href="/vendor-products" ><button class="btn btn-secondary">
                                             Back
                                         </button>
+                                        </a>
 
                                         <!-- <input type="submit" class="btn btn-primary"> -->
                                     </div>

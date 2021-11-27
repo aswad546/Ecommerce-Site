@@ -556,7 +556,7 @@
                                 <td>
                                     <img src="{{URL::asset('assets/images/'.$r['product_image'])}}" width="100px"/>
                                 </td>
-                                <td>{{$r['price']}}</td>
+                                <td>${{number_format((float)$r['price'], 2, '.', '')}}</td>
                                 <td>{{$r['quantity']}}</td>
                                 <td class="text-end">
                                     <a href="{{route('edit.product', $r['product_id'])}}" class="btn btn-outline-info btn-rounded">Edit</a>
