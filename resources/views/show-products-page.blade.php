@@ -9,20 +9,6 @@
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Ecommerce">
     <meta name="author" content="p-themes">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/icons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/icons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('assets/images/icons/site.html')}}">
-    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
-    <link rel="shortcut icon" href="{{asset('assets/images/icons/favicon.ico')}}">
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
-    <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="{{asset('assets/images/icons/browserconfig.xml')}}">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet"
-          href="{{asset('assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}">
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
@@ -41,6 +27,7 @@
             <div class="container">
                 <!-- End .header-left -->
 
+
                 <div class="header-right">
                     <!-- End .soial-icons -->
                     <ul class="top-menu top-link-menu">
@@ -58,6 +45,7 @@
                 </div><!-- End .header-right -->
             </div>
         </div>--}}
+
         <div class="header-middle">
             <div class="container">
                 <div class="header-left">
@@ -84,7 +72,7 @@
                             <span class="wishlist-txt">My Wishlist</span>
                         </a>
                         <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                            <a href="/shopping-cart" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">0</span>
@@ -189,6 +177,15 @@
 
         <!-- End .header-bottom -->
     </header><!-- End .header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav>
     {{--<div class="container">
         <div class="heading heading-flex mb-3">
             <!-- <div class="heading-left">

@@ -12,11 +12,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Add Product</title>
-    <link href="{{asset('assets-1/vendor/fontawesome/css/fontawesome.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets-1/vendor/fontawesome/css/solid.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets-1/vendor/fontawesome/css/brands.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets-1/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets-1/css/master.css')}}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ecommerce</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Ecommerce">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/icons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/icons/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('assets/images/icons/site.html')}}">
+    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
+    <link rel="shortcut icon" href="{{asset('assets/images/icons/favicon.ico')}}">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="{{asset('assets/images/icons/browserconfig.xml')}}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet"
+          href="{{asset('assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/jquery.countdown.css')}}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/skins/skin-demo-9.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/demos/demo-9.css')}}">
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
+
 </head>
 
 <body>
@@ -151,14 +185,13 @@
         <div class="content">
             <div class="container">
                 <div class="page-title">
-                    <h3>Add Product</h3>
+                    <h4>Add Product</h4>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">Product Details</div>
                             <div class="card-body">
-                                <h5 class="card-title">Enter product details.</h5>
+                                <h6 class="card-title">Enter product details.</h6>
                                 <form accept-charset="utf-8" method="post" action="{{route('add.product.save')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">

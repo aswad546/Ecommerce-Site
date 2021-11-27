@@ -96,7 +96,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a href="/product-detail">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -106,7 +106,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="/product-detail" class="product-image">
                                                 <img src="{{asset('assets/images/products/cart/product-1.jpg')}}"
                                                      alt="product">
                                             </a>
@@ -117,7 +117,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                                <a href="/product-detail">Blue utility pinafore denim dress</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -127,7 +127,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="/product-detail" class="product-image">
                                                 <img src="{{asset('assets/images/products/cart/product-2.jpg')}}"
                                                      alt="product">
                                             </a>
@@ -143,7 +143,7 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                    <a href="/shopping-cart" class="btn btn-primary">View Cart</a>
                                     <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
                                             class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
@@ -262,7 +262,7 @@
                             <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
                                 <div class="product product-7 text-center">
                                     <figure class="product-media">
-                                        <a href="product.html">
+                                        <a href="/product-detail">
                                             <img src="assets/images/demos/demo-9/products/product-1-1.jpg"
                                                  alt="Product image" class="product-image">
                                             <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
@@ -330,7 +330,7 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Sandals</a></h3>
+                                        <h3 class="product-title"><a href="/product-detail">Sandals</a></h3>
                                         <!-- End .product-title -->
                                         <div class="product-price">
                                             $24.99
@@ -350,7 +350,7 @@
                                 <div class="product product-7 text-center">
                                     <figure class="product-media">
                                         <!-- <span class="product-label label-sale">sale</span> -->
-                                        <a href="product.html">
+                                        <a href="/product-detail">
                                             <img src="assets/images/demos/demo-9/products/product-3-1.jpg"
                                                  alt="Product image" class="product-image">
                                             <!-- <img src="assets/images/demos/demo-9/products/product-3-2.jpg" alt="Product image" class="product-image-hover"> -->
@@ -368,7 +368,7 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Printed sweatshirt</a></h3>
+                                        <h3 class="product-title"><a href="/product-detail">Printed sweatshirt</a></h3>
                                         <!-- End .product-title -->
                                         <div class="product-price">
                                             $12.99
@@ -389,7 +389,7 @@
                             <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
                                 <div class="product product-7 text-center">
                                     <figure class="product-media">
-                                        <a href="product.html">
+                                        <a href="/product-detail">
                                             <img src="assets/images/demos/demo-9/products/product-4-1.jpg"
                                                  alt="Product image" class="product-image">
                                             <!-- <img src="assets/images/demos/demo-9/products/product-4-2.jpg" alt="Product image" class="product-image-hover"> -->
@@ -407,7 +407,7 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Linen-blend paper bag
+                                        <h3 class="product-title"><a href="/product-detail">Linen-blend paper bag
                                                 trousers</a></h3><!-- End .product-title -->
                                         <div class="product-price">
                                             $17.99
@@ -615,10 +615,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="product.html" class="sf-with-ul">Product<span class="mmenu-btn"></span><span
+                    <a href="/product-detail" class="sf-with-ul">Product<span class="mmenu-btn"></span><span
                             class="mmenu-btn"></span><span class="mmenu-btn"></span></a>
                     <ul>
-                        <li><a href="product.html">Default</a></li>
+                        <li><a href="/product-detail">Default</a></li>
                         <li><a href="product-centered.html">Centered</a></li>
                         <li><a href="product-extended.html"><span>Extended Info<span
                                         class="tip tip-new">New</span></span></a></li>
