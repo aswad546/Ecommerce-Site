@@ -61,7 +61,7 @@ class VendorController extends Controller
             $request->file('product_image')->move($destinationPath, $name);
 
             $sql = "INSERT INTO products
-                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', $id, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price',DEFAULT,  $id, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $conn = null;
         }

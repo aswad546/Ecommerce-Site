@@ -27,6 +27,7 @@ class HomePageController extends Controller
                 $query->execute();
                 $result = $query->setFetchMode(PDO::FETCH_ASSOC);
                 $products = $query->fetchAll();
+//                dd($products);
                 return view('homepage', compact('res', 'products'));
             }
         }
