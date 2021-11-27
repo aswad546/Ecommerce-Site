@@ -34,3 +34,16 @@ Route::post('/vendor-products/add/save', [VendorController::class, 'createProduc
 Route::get('/vendor-products/edit/{id}', [VendorController::class, 'editProduct'])->name('edit.product');
 Route::post('/vendor-products/edit/{id}/save', [VendorController::class, 'saveProduct'])->name('edit.product.save');
 Route::get('/vendor-products/remove/{id}', [VendorController::class, 'removeProducts'])->name('remove.products');
+
+Route::get('/shopping-cart',function(){
+    return view('shopping-cart');
+});
+
+Route::get('/product-detail',function(){
+    return view('product-detail');
+});
+
+Route::get('/homepage',function(){
+    return view('homepage');
+});
+
