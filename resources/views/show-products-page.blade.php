@@ -544,6 +544,7 @@
                         <tr>
                             <th>Product ID</th>
                             <th>Product Name</th>
+                            <th>Product Image</th>
                             <th>Product Price</th>
                             <th>Quantity</th>
                             <!-- <th>Status</th> -->
@@ -555,12 +556,14 @@
                             <tr>
                                 <td>{{$r['product_id']}}</td>
                                 <td>{{$r['product_name']}}</td>
+                                <td>
+                                    <img src="{{URL::asset('assets/images/'.$r['product_image'])}}" width="100px"/>
+                                </td>
                                 <td>{{$r['price']}}</td>
                                 <td>{{$r['quantity']}}</td>
                                 <td class="text-end">
-                                    <a href="{{route('edit.product', $r['product_id'])}}" class="btn btn-outline-info btn-rounded"><i
-                                            class="fas fa-pen"></i>Edit</a>
-                                    <a href="{{route('remove.products', $r['product_id'])}}" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i>Remove</a>
+                                    <a href="{{route('edit.product', $r['product_id'])}}" class="btn btn-outline-info btn-rounded">Edit</a>
+                                    <a href="{{route('remove.products', $r['product_id'])}}" class="btn btn-outline-danger btn-rounded">Remove</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -635,7 +638,7 @@
                 </div>
             </div>
             <div>
-                <a href="{{route('add.product')}}"><button class="btn btn-primary"><i class="fas fa-pen "></i> Add a Product</button></a>
+                <a href="{{route('add.product')}}"><button class="btn btn-primary"> Add a Product</button></a>
                 {{--                <button class="btn btn-danger"><i class="fas fa-trash "></i> Remove a Product</button>--}}
             </div>
         </div>

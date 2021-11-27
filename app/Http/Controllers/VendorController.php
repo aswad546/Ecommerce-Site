@@ -53,8 +53,14 @@ class VendorController extends Controller
         $conn = connection::connect_db();
         if ($conn) {
             $id = session('user_id');
+            $name = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
+
+            $destinationPath = public_path('\assets\images');
+
+            $request->file('product_image')->move($destinationPath, $name);
+
             $sql = "INSERT INTO products
-                    VALUES (DEFAULT, '$request->product_name', DEFAULT, '$request->quantity', '$request->price', $id, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', $id, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $conn = null;
         }
@@ -66,9 +72,15 @@ class VendorController extends Controller
     {
         $conn = connection::connect_db();
         if ($conn) {
+            $name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
+
+            $destinationPath = public_path('\assets\images');
+
+            $request->file('product_image')->move($destinationPath, $name1);
             $sql = "UPDATE products
                     SET
                         product_name = '$request->product_name',
+                        product_image = '$name1',
                         price = '$request->price',
                         quantity = '$request->quantity'
                     WHERE product_id = $id";

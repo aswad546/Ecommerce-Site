@@ -173,6 +173,10 @@
                                         <label for="password" class="form-label">Quantity</label>
                                         <input type="text" name="quantity" placeholder="Quantity" class="form-control" required>
                                     </div>
+                                    <div class="mb-4">
+                                        <label for="formFileSm" class="form-label">Upload image</label>
+                                        <input class="form-control form-control-sm p-3" name="product_image" placeholder="Product Image" id="formFileSm" type="file" />
+                                    </div>
                                     <div class="mb-3">
                                         <button class="btn btn-primary" type="submit">
                                             Save
