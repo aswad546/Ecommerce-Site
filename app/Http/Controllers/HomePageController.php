@@ -20,7 +20,14 @@ class HomePageController extends Controller
             $res = $query->fetchAll();
             if($res) {
                 $res = $res[0];
-                return view('homepage', compact('res'));
+                $id = $res['id'];
+                $sql = "SELECT * FROM products
+                        WHERE user_id = $id";
+                $query = $conn->prepare($sql);
+                $query->execute();
+                $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+                $products = $query->fetchAll();
+                return view('homepage', compact('res', 'products'));
             }
         }
         return view('homepage');

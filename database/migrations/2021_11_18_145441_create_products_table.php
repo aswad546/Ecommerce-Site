@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
                     `product_image` varchar(255) NULL DEFAULT NULL,
                     `quantity` int UNSIGNED NOT NULL,
                     `price` int NOT NULL,
+                    `category` varchar(255) NOT NULL,
                     `user_id` bigint(20) UNSIGNED,
                     `created_at` timestamp NULL DEFAULT NULL,
                     `updated_at` timestamp NULL DEFAULT NULL,

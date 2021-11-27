@@ -22,6 +22,7 @@ class VendorController extends Controller
             $query->execute();
             $result = $query->setFetchMode(PDO::FETCH_ASSOC);
             $res = $query->fetchAll();
+//            dd($res);
             $conn = null;
             return view('show-products-page', compact('res'));
         }
