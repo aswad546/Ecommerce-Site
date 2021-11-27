@@ -78,6 +78,29 @@
                 </div><!-- End .header-left -->
                 <div class="header-right">
                     @if(session('user_id'))
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows sf-js-enabled" style="touch-action: auto;">
+
+                                <li class="">
+                                    <a>Product type</a>
+
+                                    <ul style="display: none;">
+                                        <div class="product">
+                                            <a href="#"><span class="cart-txt">Tops</span></a>
+                                        </div>
+                                        <div class="product">
+                                            <a href="#"><span class="cart-txt">Bottoms</span></a>
+                                        </div>
+                                        <div class="product">
+                                            <a href="#"><span class="cart-txt">Shoes</span></a>
+                                        </div>
+
+
+                                    </ul>
+                                </li>
+
+                            </ul><!-- End .menu -->
+                        </nav>
                         <a href="wishlist.html" class="wishlist-link">
                             <i class="icon-heart-o"></i>
                             <span class="wishlist-count">3</span>
@@ -198,6 +221,7 @@
 
         <!-- End .header-bottom -->
     </header><!-- End .header -->
+
     @if((session('user_id') && $res['user_roles'] == "user") || !session('user_id'))
         <div class="container">
         <div class="heading heading-flex mb-3">
@@ -538,23 +562,21 @@
 
         <!-- End .main -->
 
+
         <!-- End .footer -->
     </div><!-- End .page-wrapper -->
     @elseif(session('user_id'))
         <div class="container">
             <div class="heading heading-flex mb-3">
-                <!-- <div class="heading-left">
-                    <h2 class="title">Trending Now</h2>
-                    <!-- End .title -->
-                <!-- </div> -->
-                <!-- End .heading-left -->
 
                 <div class="heading-right">
                     <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
+
                         <li class="nav-item">
                             <a class="nav-link active" id="trending-women-link" data-toggle="tab" href="#trending-women-tab"
                                role="tab" aria-controls="trending-women-tab" aria-selected="true">My products</a>
                         </li>
+
                         <!-- <li class="nav-item">
                             <a class="nav-link" id="trending-men-link" data-toggle="tab" href="#trending-men-tab" role="tab" aria-controls="trending-men-tab" aria-selected="false">Men's Clothing</a>
                         </li> -->
