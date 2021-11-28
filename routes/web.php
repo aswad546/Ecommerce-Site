@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,10 @@ Route::post('/vendor-products/add/save', [VendorController::class, 'createProduc
 Route::get('/vendor-products/edit/{id}', [VendorController::class, 'editProduct'])->name('edit.product');
 Route::post('/vendor-products/edit/{id}/save', [VendorController::class, 'saveProduct'])->name('edit.product.save');
 Route::get('/vendor-products/remove/{id}', [VendorController::class, 'removeProducts'])->name('remove.products');
+
+Route::get('/shop/tops', [ShopController::class, 'showTops'])->name('shop.tops');
+Route::get('/shop/bottoms', [ShopController::class, 'showBottoms'])->name('shop.bottoms');
+Route::get('/shop/shoes', [ShopController::class, 'showShoes'])->name('shop.shoes');
 
 Route::get('/shopping-cart',function(){
     return view('shopping-cart');

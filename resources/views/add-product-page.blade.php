@@ -204,10 +204,18 @@
                                         <input type="text" name="quantity" placeholder="Quantity" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="password" class="form-label">Product Description</label>
-                                        <input type="text" name="quantity" placeholder="Product Description" class="form-control" required>
+                                        <label for="category" class="form-label">Product Category</label>
+                                        <select name="category" id="category" class="form-control" required>
+                                            <option value="">Select an option</option>
+                                            <option value="Top">Tops</option>
+                                            <option value="Bottom">Bottoms</option>
+                                            <option value="Shoe">Shoes</option>
+                                        </select>
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="description">Product Description</label>
+                                        <textarea class="form-control rounded-0" id="description" name="description" rows="10" required></textarea>
+                                    </div>
                                     <div class="mb-4">
                                         <label for="formFileSm" class="form-label">Upload image</label>
                                         <input class="form-control form-control-sm p-3" name="product_image" placeholder="Product Image" id="formFileSm" type="file" />

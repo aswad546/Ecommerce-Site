@@ -163,15 +163,28 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Product Name</label>
-                                        <input type="text" name="product_name" placeholder="Product Name" class="form-control" >
+                                        <input type="text" name="product_name" placeholder="Product Name" class="form-control" value="{{$res['product_name']}}" >
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Product Price</label>
-                                        <input type="text" name="price" placeholder="Product Price" class="form-control" >
+                                        <input type="text" name="price" placeholder="Product Price" class="form-control" value="{{$res['price']}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Quantity</label>
-                                        <input type="text" name="quantity" placeholder="Quantity" class="form-control" >
+                                        <input type="text" name="quantity" placeholder="Quantity" class="form-control" value="{{$res['quantity']}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label">Product Category</label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value="">Select an option</option>
+                                            <option value="Top" {{$res['category']=="Top" ? "selected" : ""}}>Tops</option>
+                                            <option value="Bottom" {{$res['category']=="Bottom" ? "selected" : ""}}>Bottoms</option>
+                                            <option value="Shoe" {{$res['category']=="Shoe" ? "selected" : ""}}>Shoes</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description">Product Description</label>
+                                        <textarea class="form-control rounded-0" id="description" name="description" rows="10">{{$res['product_description']}}</textarea>
                                     </div>
                                     <div class="mb-4">
                                         <label for="formFileSm" class="form-label">Upload image</label>
