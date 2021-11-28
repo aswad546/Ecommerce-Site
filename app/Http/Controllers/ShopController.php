@@ -10,21 +10,24 @@ class ShopController extends Controller
 {
     public function showTops(){
         $res = $this->getUser();
+        $cart = $this->getCart();
         $products = $this->getProducts('Top');
 
-        return view('product-type-tops', compact('products', 'res'));
+        return view('product-type-tops', compact('products', 'res', 'cart'));
     }
 
     public function showBottoms(){
         $res = $this->getUser();
         $products = $this->getProducts('Bottom');
-        return view('product-type-bottoms', compact('products', 'res'));
+        $cart = $this->getCart();
+        return view('product-type-bottoms', compact('products', 'res', 'cart'));
     }
 
     public function showShoes(){
         $res = $this->getUser();
         $products = $this->getProducts('Shoe');
-        return view('product-type-shoes', compact('products', 'res'));
+        $cart = $this->getCart();
+        return view('product-type-shoes', compact('products', 'res', 'cart'));
     }
 
     public function searchProducts(Request $request){
@@ -62,6 +65,24 @@ class ShopController extends Controller
             $conn = null;
         }
         return $products;
+    }
+    protected function getCart(){
+        $conn = connection::connect_db();
+        $product = "";
+        if ($conn) {
+            $id = session('user_id');
+            $sql = "SELECT *
+                    FROM cart c
+                    JOIN users u on u.id = c.user_id
+                    JOIN products p on p.product_id = c.product_id
+                    WHERE c.user_id = $id";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $product = $query->fetchAll();
+            $conn = null;
+        }
+        return $product;
     }
 
     protected function getUser()

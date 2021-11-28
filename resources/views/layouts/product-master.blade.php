@@ -37,7 +37,7 @@
                             <div class="header-search-wrapper search-wrapper-wide">
                                 <label for="q" class="sr-only">Search</label>
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                <input type="search" name="search" class="form-control"  id="q"
+                                <input type="search" name="search" class="form-control" id="q"
                                        placeholder="Search product ..." required>
                             </div><!-- End .header-search-wrapper -->
                         </form>
@@ -80,53 +80,35 @@
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
-                                <span class="cart-count">0</span>
-                                <span class="cart-txt">$ 164,00</span>
+                                <span class="cart-count">{{count($cart)}}</span>
+                                <{{--span class="cart-txt">$ 164,00</span>--}}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="/product-detail">Beige knitted elastic runner shoes</a>
-                                            </h4>
+                                    @foreach($cart as $c)
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="/product-detail">{{$c['product_name']}}</a>
+                                                </h4>
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
+                                                <span class="cart-product-info">
+                                                <span class="cart-product-qty">{{$c['cart_qty']}}</span>
+                                                x ${{$c['price']}}
                                             </span>
-                                        </div><!-- End .product-cart-details -->
+                                            </div><!-- End .product-cart-details -->
 
-                                        <figure class="product-image-container">
-                                            <a href="/product-detail" class="product-image">
-                                                <img src="{{asset('assets/images/products/cart/product-1.jpg')}}"
-                                                     alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="/product-detail">Blue utility pinafore denim dress</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="/product-detail" class="product-image">
-                                                <img src="{{asset('assets/images/products/cart/product-2.jpg')}}"
-                                                     alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
+                                            <figure class="product-image-container">
+                                                <a href="/product-detail" class="product-image">
+                                                    <img src="{{asset('assets/images/'.$c['product_image'])}}"
+                                                         alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i
+                                                    class="icon-close"></i></a>
+                                        </div><!-- End .product -->
+                                    @endforeach
                                 </div><!-- End .cart-product -->
 
                                 <div class="dropdown-cart-total">
@@ -204,7 +186,8 @@
                 <div class="heading-right">
                     <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="trending-women-link" data-toggle="tab" href="#trending-women-tab"
+                            <a class="nav-link active" id="trending-women-link" data-toggle="tab"
+                               href="#trending-women-tab"
                                role="tab" aria-controls="trending-women-tab" aria-selected="true">Bottoms</a>
                         </li>
                         <!-- <li class="nav-item">
@@ -251,25 +234,28 @@
                         <!-- End .product -->
 
                         <!-- End .product -->
-                        <div class="owl-stage-outer">
+                        <div class="owl-stage-outer" id="product_container">
                             <div class="owl-stage"
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1338px;">
-{{--                                @dd($products)--}}
-@yield('content')
+                            {{--                                @dd($products)--}}
+                            @yield('content')
 
 
-<!-- End .footer -->
+                            <!-- End .footer -->
                             </div><!-- End .page-wrapper -->
                             @elseif(session('user_id'))
                                 <div class="container">
                                     <div class="heading heading-flex mb-3">
 
                                         <div class="heading-right">
-                                            <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
+                                            <ul class="nav nav-pills nav-border-anim justify-content-center"
+                                                role="tablist">
 
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="trending-women-link" data-toggle="tab" href="#trending-women-tab"
-                                                       role="tab" aria-controls="trending-women-tab" aria-selected="true">My products</a>
+                                                    <a class="nav-link active" id="trending-women-link"
+                                                       data-toggle="tab" href="#trending-women-tab"
+                                                       role="tab" aria-controls="trending-women-tab"
+                                                       aria-selected="true">My products</a>
                                                 </li>
 
                                                 <!-- <li class="nav-item">
@@ -280,10 +266,12 @@
                                     </div><!-- End .heading -->
 
                                     <div class="tab-content tab-content-carousel">
-                                        <div class="tab-pane p-0 fade active show" id="trending-women-tab" role="tabpanel"
+                                        <div class="tab-pane p-0 fade active show" id="trending-women-tab"
+                                             role="tabpanel"
                                              aria-labelledby="trending-women-link">
-                                            <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag"
-                                                 data-toggle="owl" data-owl-options="{
+                                            <div
+                                                class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag"
+                                                data-toggle="owl" data-owl-options="{
                                     &quot;nav&quot;: false,
                                     &quot;dots&quot;: true,
                                     &quot;margin&quot;: 20,
@@ -311,29 +299,36 @@
                                                     <div class="owl-stage"
                                                          style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1338px;">
                                                         @foreach($products as $product)
-                                                            <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
+                                                            <div class="owl-item active"
+                                                                 style="width: 247.6px; margin-right: 20px;">
                                                                 <div class="product product-7 text-center">
                                                                     <figure class="product-media">
                                                                         <a href="{{route('shop.product.detail', $product['product_id'])}}">
-                                                                            <img src="{{asset('assets/images/'.$product['product_image'])}}"
-                                                                                 alt="Product image" class="product-image">
+                                                                            <img
+                                                                                src="{{asset('assets/images/'.$product['product_image'])}}"
+                                                                                alt="Product image"
+                                                                                class="product-image">
                                                                             <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
                                                                         </a>
 
                                                                         <div class="product-action-vertical">
                                                                             <!-- <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a> -->
-                                                                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
+                                                                            <a href="popup/quickView.html"
+                                                                               class="btn-product-icon btn-quickview"
                                                                                title="Quick view"><span>Quick view</span></a>
                                                                         </div><!-- End .product-action-vertical -->
 
                                                                         <div class="product-action">
-                                                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                                            <a href="#"
+                                                                               class="btn-product btn-cart"><span>add to cart</span></a>
                                                                         </div><!-- End .product-action -->
                                                                     </figure><!-- End .product-media -->
 
                                                                     <div class="product-body">
 
-                                                                        <h3 class="product-title"><a href="{{route('shop.product.detail', $product['product_id'])}}">{{$product['product_name']}}</a></h3>
+                                                                        <h3 class="product-title"><a
+                                                                                href="{{route('shop.product.detail', $product['product_id'])}}">{{$product['product_name']}}</a>
+                                                                        </h3>
                                                                         <!-- End .product-title -->
                                                                         <div class="product-price">
                                                                             ${{number_format((float)$product['price'], 2, '.', '')}}
@@ -341,10 +336,12 @@
 
                                                                         <div class="ratings-container">
                                                                             <div class="ratings">
-                                                                                <div class="ratings-val" style="width: 100%;"></div>
+                                                                                <div class="ratings-val"
+                                                                                     style="width: 100%;"></div>
                                                                                 <!-- End .ratings-val -->
                                                                             </div><!-- End .ratings -->
-                                                                            <span class="ratings-text">( 6 Reviews )</span>
+                                                                            <span
+                                                                                class="ratings-text">( 6 Reviews )</span>
                                                                         </div><!-- End .rating-container -->
                                                                     </div><!-- End .product-body -->
                                                                 </div>
@@ -357,8 +354,9 @@
                                             </div><!-- .End .tab-pane -->
                                             <div class="tab-pane p-0 fade" id="trending-men-tab" role="tabpanel"
                                                  aria-labelledby="trending-men-link">
-                                                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag"
-                                                     data-toggle="owl" data-owl-options="{
+                                                <div
+                                                    class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag"
+                                                    data-toggle="owl" data-owl-options="{
                                     &quot;nav&quot;: false,
                                     &quot;dots&quot;: true,
                                     &quot;margin&quot;: 20,
@@ -387,9 +385,11 @@
                                                         <div class="owl-stage"></div>
                                                     </div>
                                                     <div class="owl-nav disabled">
-                                                        <button type="button" role="presentation" class="owl-prev"><i class="icon-angle-left"></i>
+                                                        <button type="button" role="presentation" class="owl-prev"><i
+                                                                class="icon-angle-left"></i>
                                                         </button>
-                                                        <button type="button" role="presentation" class="owl-next"><i class="icon-angle-right"></i>
+                                                        <button type="button" role="presentation" class="owl-next"><i
+                                                                class="icon-angle-right"></i>
                                                         </button>
                                                     </div>
                                                     <div class="owl-dots disabled"></div>
@@ -404,7 +404,8 @@
                                 </div><!-- End .page-wrapper -->
                             @endif
 
-                            <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i></button>
+                            <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i>
+                            </button>
 
                             <!-- End .main -->
 
@@ -421,7 +422,8 @@
 
                                 <form action="#" method="get" class="mobile-search">
                                     <label for="mobile-search" class="sr-only">Search</label>
-                                    <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
+                                    <input type="search" class="form-control" name="mobile-search" id="mobile-search"
+                                           placeholder="Search in..."
                                            required="">
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                                 </form>
@@ -429,7 +431,8 @@
                                 <nav class="mobile-nav">
                                     <ul class="mobile-menu">
                                         <li class="active">
-                                            <a href="index.html">Home<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                            <a href="index.html">Home<span class="mmenu-btn"></span><span
+                                                    class="mmenu-btn"></span><span
                                                     class="mmenu-btn"></span></a>
 
                                             <ul>
@@ -460,7 +463,8 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="category.html">Shop<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                            <a href="category.html">Shop<span class="mmenu-btn"></span><span
+                                                    class="mmenu-btn"></span><span
                                                     class="mmenu-btn"></span></a>
                                             <ul>
                                                 <li><a href="category-list.html">Shop List</a></li>
@@ -470,7 +474,8 @@
                                                 <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span
                                                                 class="tip tip-hot">Hot</span></span></a></li>
                                                 <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
-                                                <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
+                                                <li><a href="product-category-boxed.html">Product Category Boxed</a>
+                                                </li>
                                                 <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
                                                                 class="tip tip-new">New</span></span></a></li>
                                                 <li><a href="cart.html">Cart</a></li>
@@ -480,7 +485,8 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="/product-detail" class="sf-with-ul">Product<span class="mmenu-btn"></span><span
+                                            <a href="/product-detail" class="sf-with-ul">Product<span
+                                                    class="mmenu-btn"></span><span
                                                     class="mmenu-btn"></span><span class="mmenu-btn"></span></a>
                                             <ul>
                                                 <li><a href="/product-detail">Default</a></li>
@@ -495,7 +501,8 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Pages<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                            <a href="#">Pages<span class="mmenu-btn"></span><span
+                                                    class="mmenu-btn"></span><span
                                                     class="mmenu-btn"></span></a>
                                             <ul>
                                                 <li>
@@ -508,7 +515,8 @@
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="contact.html">Contact<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                                    <a href="contact.html">Contact<span class="mmenu-btn"></span><span
+                                                            class="mmenu-btn"></span><span
                                                             class="mmenu-btn"></span></a>
 
                                                     <ul>
@@ -523,14 +531,16 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="blog.html">Blog<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                            <a href="blog.html">Blog<span class="mmenu-btn"></span><span
+                                                    class="mmenu-btn"></span><span
                                                     class="mmenu-btn"></span></a>
 
                                             <ul>
                                                 <li><a href="blog.html">Classic</a></li>
                                                 <li><a href="blog-listing.html">Listing</a></li>
                                                 <li>
-                                                    <a href="#">Grid<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                                    <a href="#">Grid<span class="mmenu-btn"></span><span
+                                                            class="mmenu-btn"></span><span
                                                             class="mmenu-btn"></span></a>
                                                     <ul>
                                                         <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
@@ -540,7 +550,8 @@
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Masonry<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                                    <a href="#">Masonry<span class="mmenu-btn"></span><span
+                                                            class="mmenu-btn"></span><span
                                                             class="mmenu-btn"></span></a>
                                                     <ul>
                                                         <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
@@ -550,7 +561,8 @@
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Mask<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                                    <a href="#">Mask<span class="mmenu-btn"></span><span
+                                                            class="mmenu-btn"></span><span
                                                             class="mmenu-btn"></span></a>
                                                     <ul>
                                                         <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
@@ -558,12 +570,15 @@
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Single Post<span class="mmenu-btn"></span><span class="mmenu-btn"></span><span
+                                                    <a href="#">Single Post<span class="mmenu-btn"></span><span
+                                                            class="mmenu-btn"></span><span
                                                             class="mmenu-btn"></span></a>
                                                     <ul>
                                                         <li><a href="single.html">Default with sidebar</a></li>
-                                                        <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
-                                                        <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
+                                                        <li><a href="single-fullwidth.html">Fullwidth no sidebar</a>
+                                                        </li>
+                                                        <li><a href="single-fullwidth-sidebar.html">Fullwidth with
+                                                                sidebar</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -592,17 +607,57 @@
                                 </nav><!-- End .mobile-nav -->
 
                                 <div class="social-icons">
-                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i
+                                            class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i
+                                            class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i
+                                            class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i
+                                            class="icon-youtube"></i></a>
                                 </div><!-- End .social-icons -->
                             </div><!-- End .mobile-menu-wrapper -->
                         </div><!-- End .mobile-menu-container -->
 
-                       @include('layouts.partials.sign-up-modal')
+                    @include('layouts.partials.sign-up-modal')
+                        <script>
+                            const add_cart = document.getElementById('product_container');
+                            const addToCart = async function(e){
+                                if(e.target.classList.contains('add_cart'))
+                                {
+                                    const id = e.target.getAttribute('data-id');
+                                    const data = {
+                                        id,
+                                        qty : 1
+                                    };
+                                    const uri = `/add-to-cart`;
+                                    const options = {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-type': 'application/json',
+                                            'X-CSRF-Token': '{{csrf_token()}}'
+                                        },
+                                        body: JSON.stringify(data),
+                                    };
 
-                        <!-- Plugins JS File -->
+                                    try {
+                                        const response = await fetch(uri, options);
+                                        const discount = await response.json();
+                                        if(response.success){
+                                            alert('added to cart');
+                                        }
+                                        if (discount.fail) {
+                                            alert('failed to add to cart');
+                                        }
+                                    }
+                                    catch(err) {
+                                        alert('failed to add to cart');
+                                    }
+                                }
+                            }
+                            add_cart.addEventListener('click', addToCart);
+                        </script>
+                    <!-- Plugins JS File -->
                         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
                         <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
                         <script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>

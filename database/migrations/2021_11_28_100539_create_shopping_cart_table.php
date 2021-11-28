@@ -18,8 +18,7 @@ class CreateShoppingCartTable extends Migration
         if($conn){
             $sql = "CREATE TABLE IF NOT EXISTS cart (
                     `cart_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-                    `quantity` int UNSIGNED NOT NULL,
-                    `price` int NOT NULL,
+                    `cart_qty` int UNSIGNED NOT NULL,
                     `user_id` bigint(20) UNSIGNED,
                     `product_id` bigint(20) UNSIGNED,
                     `created_at` timestamp NULL DEFAULT NULL,

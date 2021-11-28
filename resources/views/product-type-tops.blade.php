@@ -1,8 +1,8 @@
 @extends('layouts.product-master')
 @section('content')
                                 @foreach($products as $product)
-                                    <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
-                                    <div class="product product-7 text-center">
+                                    <div class="owl-item active" style="width: 247.6px; margin-right: 20px;" >
+                                    <div class="product product-7 text-center" >
                                         <figure class="product-media">
                                             <a href="{{route('shop.product.detail', $product['product_id'])}}">
                                                 <img src="{{asset('assets/images/'. $product['product_image'])}}"
@@ -17,7 +17,7 @@
                                             </div><!-- End .product-action-vertical -->
 
                                             <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                <a href="javascript:void(0)"  class="btn-product btn-cart add_cart" data-id="{{$product['product_id']}}"><span>add to cart</span></a>
                                             </div><!-- End .product-action -->
                                         </figure><!-- End .product-media -->
 

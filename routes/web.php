@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomePageController;
@@ -47,6 +48,8 @@ Route::get('/shopping-cart',function(){
 });
 
 Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
+
+Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
 
 Route::get('/homepage',function(){
     return view('homepage');
