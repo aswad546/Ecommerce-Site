@@ -27,10 +27,27 @@ class ShopController extends Controller
         return view('product-type-shoes', compact('products', 'res'));
     }
 
+    public function searchProducts(Request $request){
+        $res = $this->getUser();
+        $conn = connection::connect_db();
+        $search = $request->search;
+        $products = "";
+        if($conn){
+            $sql = "SELECT * FROM products
+                    where product_name LIKE '%$search%' or category LIKE '%$search%'";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $products = $query->fetchAll();
+            $conn = null;
+        }
+        return view('search-result', compact('res', 'products'));
+    }
+
     /**
      * @return array|false|string
      */
-    public function getProducts($category)
+    protected function getProducts($category)
     {
         $conn = connection::connect_db();
         $products = "";
@@ -47,7 +64,7 @@ class ShopController extends Controller
         return $products;
     }
 
-    public function getUser()
+    protected function getUser()
     {
         $conn = connection::connect_db();
         $user = "";
@@ -63,6 +80,24 @@ class ShopController extends Controller
             $conn = null;
         }
         return $user;
+    }
+
+    public function showProductDetail($id){
+        $res = $this->getUser();
+        $conn = connection::connect_db();
+        $product = "";
+        if ($conn) {
+            $user_id = session('user_id');
+            $sql = "SELECT *
+                    FROM products p
+                    WHERE p.product_id = $id";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $product = $query->fetchAll()[0];
+            $conn = null;
+        }
+        return view('product-detail', compact('res', 'product'));
     }
 
 

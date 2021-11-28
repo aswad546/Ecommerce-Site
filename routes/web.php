@@ -40,13 +40,13 @@ Route::get('/shop/tops', [ShopController::class, 'showTops'])->name('shop.tops')
 Route::get('/shop/bottoms', [ShopController::class, 'showBottoms'])->name('shop.bottoms');
 Route::get('/shop/shoes', [ShopController::class, 'showShoes'])->name('shop.shoes');
 
+Route::post('/search-products', [ShopController::class, 'searchProducts'])->name('search.products');
+
 Route::get('/shopping-cart',function(){
     return view('shopping-cart');
 });
 
-Route::get('/product-detail',function(){
-    return view('product-detail');
-});
+Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
 
 Route::get('/homepage',function(){
     return view('homepage');

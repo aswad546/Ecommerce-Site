@@ -32,12 +32,13 @@
                 <div class="header-left">
                     <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                         <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                        <form action="#" method="get">
+                        <form action="{{route('search.products')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="header-search-wrapper search-wrapper-wide">
                                 <label for="q" class="sr-only">Search</label>
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                <input type="search" class="form-control" name="q" id="q"
-                                       placeholder="Search product ..." required="">
+                                <input type="search" name="search" class="form-control"  id="q"
+                                       placeholder="Search product ..." required>
                             </div><!-- End .header-search-wrapper -->
                         </form>
                     </div><!-- End .header-search -->
@@ -313,7 +314,7 @@
                                                             <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
                                                                 <div class="product product-7 text-center">
                                                                     <figure class="product-media">
-                                                                        <a href="product.html">
+                                                                        <a href="{{route('shop.product.detail', $product['product_id'])}}">
                                                                             <img src="{{asset('assets/images/'.$product['product_image'])}}"
                                                                                  alt="Product image" class="product-image">
                                                                             <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
@@ -331,7 +332,8 @@
                                                                     </figure><!-- End .product-media -->
 
                                                                     <div class="product-body">
-                                                                        <h3 class="product-title"><a href="product.html">{{$product['product_name']}}</a></h3>
+
+                                                                        <h3 class="product-title"><a href="{{route('shop.product.detail', $product['product_id'])}}">{{$product['product_name']}}</a></h3>
                                                                         <!-- End .product-title -->
                                                                         <div class="product-price">
                                                                             ${{number_format((float)$product['price'], 2, '.', '')}}

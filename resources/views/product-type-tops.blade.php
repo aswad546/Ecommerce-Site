@@ -4,7 +4,7 @@
                                     <div class="owl-item active" style="width: 247.6px; margin-right: 20px;">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="/product-detail">
+                                            <a href="{{route('shop.product.detail', $product['product_id'])}}">
                                                 <img src="{{asset('assets/images/'. $product['product_image'])}}"
                                                      alt="Product image" class="product-image">
                                                 <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
@@ -22,7 +22,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="product.html">{{$product['product_name']}}</a></h3>
+                                            <h3 class="product-title"><a href="{{route('shop.product.detail', $product['product_id'])}}">{{$product['product_name']}}</a></h3>
                                             <!-- End .product-title -->
                                             <div class="product-price">
                                                 ${{number_format((float)$product['price'], 2, '.', '')}}
