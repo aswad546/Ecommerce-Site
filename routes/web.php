@@ -48,7 +48,27 @@ Route::get('/product-detail',function(){
     return view('product-detail');
 });
 
-Route::get('/homepage',function(){
-    return view('homepage');
+Route::get('/vendor-list',function(){
+    return view('vendor-list');
+});
+
+Route::get('/users-list',function(){
+    return view('users-list');
+});
+
+Route::get('/vendor-dashboard',function(){
+    return view('vendor-dashboard');
+});
+
+Route::get('/view-wallet',function(){
+    return view('view-wallet');
+});
+
+Route::get('/vendor-discount',function(){
+    return view('vendor-discount');
+});
+
+Route::get('/add-discount',function(){
+    return view('add-discount');
 });
 
