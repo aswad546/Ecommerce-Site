@@ -51,7 +51,27 @@ Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])-
 
 Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
 
-Route::get('/homepage',function(){
-    return view('homepage');
+Route::get('/vendor-list',function(){
+    return view('vendor-list');
+});
+
+Route::get('/users-list',function(){
+    return view('users-list');
+});
+
+Route::get('/vendor-dashboard',function(){
+    return view('vendor-dashboard');
+});
+
+Route::get('/view-wallet',function(){
+    return view('view-wallet');
+});
+
+Route::get('/vendor-discount',function(){
+    return view('vendor-discount');
+});
+
+Route::get('/add-discount',function(){
+    return view('add-discount');
 });
 
