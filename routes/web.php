@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -49,19 +50,11 @@ Route::get('/shopping-cart',function(){
 
 Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
 
-Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
 
-Route::get('/vendor-list',function(){
-    return view('vendor-list');
-});
-
-Route::get('/users-list',function(){
-    return view('users-list');
-});
-
-Route::get('/vendor-dashboard',function(){
-    return view('vendor-dashboard');
-});
+Route::get('/admin-dashboard', [AdminController::class, 'adminDash'])->name('admin.dash');
+Route::get('/vendor-list', [AdminController::class, 'venList'])->name('ven.list');
+Route::get('/users-list', [AdminController::class, 'useList'])->name('use.list');
 
 Route::get('/view-wallet',function(){
     return view('view-wallet');

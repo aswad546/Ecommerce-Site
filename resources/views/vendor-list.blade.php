@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +32,8 @@
                             <div class="header-search-wrapper search-wrapper-wide">
                                 <label for="q" class="sr-only">Search</label>
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required="">
+                                <input type="search" class="form-control" name="q" id="q"
+                                       placeholder="Search product ..." required="">
                             </div><!-- End .header-search-wrapper -->
                         </form>
                     </div><!-- End .header-search -->
@@ -43,7 +45,8 @@
 
                     <!-- End .cart-dropdown -->
                     <div class="dropdown cart-dropdown">
-                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false" data-display="static">
                             <i class="icon-user"></i>
                             <span class="cart-txt"></span>
                         </a>
@@ -51,10 +54,12 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/edit-profile"><span class="cart-txt">Edit Profile</span></a>
+                                    <a href="http://127.0.0.1:8000/edit-profile"><span
+                                            class="cart-txt">Edit Profile</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/vendor-products"><span class="cart-txt">My Products</span></a>
+                                    <a href="http://127.0.0.1:8000/vendor-products"><span
+                                            class="cart-txt">My Products</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
                                     <a href="#"><span class="cart-txt">Settings</span></a>
@@ -86,7 +91,8 @@
     <div class="content">
         <div class="container">
             <div class="page-title">
-                <h3>Vendors                    <!-- <a href="roles.html" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-user-shield"></i> Roles</a> -->
+                <h3>Vendors
+                    <!-- <a href="roles.html" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-user-shield"></i> Roles</a> -->
                 </h3>
             </div>
             <div class="box box-primary">
@@ -102,38 +108,41 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Jade Jensen</td>
-                            <td>Jensen@gmail.com</td>
+                        @foreach($vendors as $vendor)
+
+                            <tr>
+                                <td>{{$vendor['id']}}</td>
+                                <td>{{$vendor['name']}}</td>
+                                <td>{{$vendor['email']}}</td>
+
+
+                                <td class="text-end">
+                                    <a href="http://127.0.0.1:8000/vendor-products/remove/3"
+                                       class="btn btn-outline-danger btn-rounded">Block</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        {{-- <tr>
+                             <td>2</td>
+                             <td>Brett Carter</td>
+                             <td>brett@gmail.com</td>
+
+
+                             <td class="text-end">
+                                 <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>3</td>
+                             <td>Lester Johnston</td>
+                             <td>Johnny@hotmail.com</td>
 
 
 
-                            <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Brett Carter</td>
-                            <td>brett@gmail.com</td>
-
-
-                            <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lester Johnston</td>
-                            <td>Johnny@hotmail.com</td>
-
-
-
-                            <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
-                            </td>
-                        </tr>
+                             <td class="text-end">
+                                 <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
+                             </td>
+                         </tr>--}}
                         <!-- <tr>
     <td>Doris Greene</td>
     <td>ms.greene@outlook.com</td>
@@ -206,8 +215,6 @@
             </div>
 
 
-
-
         </div>
     </div>
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i></button>
@@ -227,7 +234,8 @@
 
         <form action="#" method="get" class="mobile-search">
             <label for="mobile-search" class="sr-only">Search</label>
-            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required="">
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
+                   required="">
             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
         </form>
 
@@ -253,23 +261,29 @@
                     <div class="form-tab">
                         <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab"
+                                   aria-controls="signin" aria-selected="true">Sign In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                                   aria-controls="register" aria-selected="false">Register</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="tab-content-5">
-                            <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                            <div class="tab-pane fade show active" id="signin" role="tabpanel"
+                                 aria-labelledby="signin-tab">
                                 <form method="post" enctype="multipart/form-data" action="/login">
-                                    <input type="hidden" name="_token" value="trFWw64w5whtE4WBn6Zo1yWC8t3RGGxgRUwVHncq">                                    <div class="form-group">
+                                    <input type="hidden" name="_token" value="trFWw64w5whtE4WBn6Zo1yWC8t3RGGxgRUwVHncq">
+                                    <div class="form-group">
                                         <label for="singin-email">Username or email address *</label>
-                                        <input type="text" class="form-control" id="singin-email" name="email" required="">
+                                        <input type="text" class="form-control" id="singin-email" name="email"
+                                               required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="singin-password">Password *</label>
-                                        <input type="password" class="form-control" id="singin-password" name="password" required="">
+                                        <input type="password" class="form-control" id="singin-password" name="password"
+                                               required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-footer">
@@ -291,18 +305,22 @@
                             </div><!-- .End .tab-pane -->
                             <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                                 <form method="post" enctype="multipart/form-data" action="/register">
-                                    <input type="hidden" name="_token" value="trFWw64w5whtE4WBn6Zo1yWC8t3RGGxgRUwVHncq">                                    <div class="form-group">
+                                    <input type="hidden" name="_token" value="trFWw64w5whtE4WBn6Zo1yWC8t3RGGxgRUwVHncq">
+                                    <div class="form-group">
                                         <label for="register-name">Your name *</label>
-                                        <input type="text" class="form-control" id="register-name" name="name" required="">
+                                        <input type="text" class="form-control" id="register-name" name="name"
+                                               required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="register-email">Your email address *</label>
-                                        <input type="email" class="form-control" id="register-email" name="email" required="">
+                                        <input type="email" class="form-control" id="register-email" name="email"
+                                               required="">
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
                                         <label for="register-user-type">User Type *</label>
-                                        <select class="form-control" id="register-user-type" name="user_type" required="">
+                                        <select class="form-control" id="register-user-type" name="user_type"
+                                                required="">
                                             <option value="" selected="">Select an option</option>
                                             <option value="vendor">Vendor</option>
                                             <option value="user">User</option>
@@ -310,12 +328,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="register-address">Address *</label>
-                                        <input type="text" class="form-control" id="register-address" name="address" required="">
+                                        <input type="text" class="form-control" id="register-address" name="address"
+                                               required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="register-password">Password *</label>
-                                        <input type="password" class="form-control" id="register-password" name="password" required="">
+                                        <input type="password" class="form-control" id="register-password"
+                                               name="password" required="">
                                     </div><!-- End .form-group -->
 
 
@@ -326,8 +346,10 @@
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="register-policy" required="">
-                                            <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                            <input type="checkbox" class="custom-control-input" id="register-policy"
+                                                   required="">
+                                            <label class="custom-control-label" for="register-policy">I agree to the <a
+                                                    href="#">privacy policy</a> *</label>
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-footer -->
                                 </form>
@@ -358,9 +380,5 @@
 <!-- molla/index-9.html  22 Nov 2019 09:58:03 GMT -->
 
 
-
-
-
-
-
-</body></html>
+</body>
+</html>
