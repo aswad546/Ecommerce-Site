@@ -7,6 +7,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,10 +73,10 @@ Route::get('/vendor-products/discounts/edit/{id}',[VendorController::class, 'edi
 Route::post('/vendor-products/discounts/edit/{id}/save', [VendorController::class, 'editDiscountSave'])->name('edit.discount.save');
 Route::get('/vendor-products/discounts/remove/{id}', [VendorController::class, 'removeDiscount'])->name('remove.discount');
 
-
 Route::get('/vendor-products/discounts-add',function(){
     return view('add-discount');
 });
-
 Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'saveDiscount'])->name('add.discount.save');
 
+
+Route::post('/product-detail/save/{id}',[FeedbackController::class, 'saveFeedback'])->name('feedback.save');

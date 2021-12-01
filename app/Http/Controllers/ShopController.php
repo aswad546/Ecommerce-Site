@@ -107,18 +107,33 @@ class ShopController extends Controller
         $res = $this->getUser();
         $conn = connection::connect_db();
         $product = "";
+        $feedback = "";
         if ($conn) {
             $user_id = session('user_id');
             $sql = "SELECT *
                     FROM products p
+                    JOIN users u on u.id = p.user_id
                     WHERE p.product_id = $id";
             $query = $conn->prepare($sql);
             $query->execute();
             $result = $query->setFetchMode(PDO::FETCH_ASSOC);
             $product = $query->fetchAll()[0];
+
+            $sql = "SELECT *
+                    FROM feedback f
+                    JOIN users u on u.id = f.user_id
+                    WHERE f.product_id = $id";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $feedback = $query->fetchAll();
+//            dd($feedback);
+
+//            dd($product);
+//            $feedback = $query->fetchAll()[0];
             $conn = null;
         }
-        return view('product-detail', compact('res', 'product'));
+        return view('product-detail', compact('res', 'product', 'feedback'));
     }
 
 

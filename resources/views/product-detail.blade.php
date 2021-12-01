@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{{--@dd($product['product_id'])--}}
 <html lang="en"><!-- molla/product.html  22 Nov 2019 09:54:50 GMT -->
 <head>
     <meta charset="UTF-8">
@@ -106,17 +107,17 @@
                     <li class="breadcrumb-item active" aria-current="page">Default</li>
                 </ol>
 
-                <nav class="product-pager ml-auto" aria-label="Product">
-                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">
-                        <i class="icon-angle-left"></i>
-                        <span>Prev</span>
-                    </a>
+{{--                <nav class="product-pager ml-auto" aria-label="Product">--}}
+{{--                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">--}}
+{{--                        <i class="icon-angle-left"></i>--}}
+{{--                        <span>Prev</span>--}}
+{{--                    </a>--}}
 
-                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">
-                        <span>Next</span>
-                        <i class="icon-angle-right"></i>
-                    </a>
-                </nav><!-- End .pager-nav -->
+{{--                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">--}}
+{{--                        <span>Next</span>--}}
+{{--                        <i class="icon-angle-right"></i>--}}
+{{--                    </a>--}}
+{{--                </nav><!-- End .pager-nav -->--}}
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
 
@@ -177,13 +178,13 @@
                                 <h1 class="product-title">{{$product['product_name']}}</h1>
                                 <!-- End .product-title -->
 
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
-                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews
-                                        )</a>
-                                </div><!-- End .rating-container -->
+{{--                                <div class="ratings-container">--}}
+{{--                                    <div class="ratings">--}}
+{{--                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->--}}
+{{--                                    </div><!-- End .ratings -->--}}
+{{--                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews--}}
+{{--                                        )</a>--}}
+{{--                                </div><!-- End .rating-container -->--}}
 
                                 <div class="product-price">
                                     ${{number_format((float)$product['price'], 2, '.', '')}}
@@ -290,7 +291,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                               role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                               role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews </a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -333,66 +334,144 @@
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
                              aria-labelledby="product-review-link">
                             <div class="reviews">
-                                <h3>Reviews (2)</h3>
+                                <h3>Reviews </h3>
+                                @if(empty($feedback))
+                                    <div class="review">
+                                        <div class="row no-gutters">
+                                            <div class="col-auto">
+                                                <div class="mb-3">
+                                                    No reviews
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                @foreach($feedback as $f)
                                 <div class="review">
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <h4><a href="#">Samanta J.</a></h4>
+                                            <h4><a href="#">{{$f['name']}}</a></h4>
                                             <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 80%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
+                                                @if($f['rating'] == 5)
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 100%;"></div>
+                                                    </div>
+                                                    @elseif($f['rating'] == 4)
+                                                        <div class="ratings">
+                                                            <div class="ratings-val" style="width: 80%;"></div>
+                                                        </div>
+                                                    @elseif($f['rating'] == 3)
+                                                        <div class="ratings">
+                                                            <div class="ratings-val" style="width: 60%;"></div>
+                                                        </div>
+                                                    @elseif($f['rating'] == 2)
+                                                        <div class="ratings">
+                                                            <div class="ratings-val" style="width: 40%;"></div>
+                                                        </div>
+                                                    @elseif($f['rating'] == 1)
+                                                        <div class="ratings">
+                                                            <div class="ratings-val" style="width: 20%;"></div>
+                                                        </div>
+                                                @endif
+{{--                                                    <div class="ratings">--}}
+{{--                                                        <div class="ratings-val" style="width: 80%;"></div>--}}
+{{--                                                        <!-- End .ratings-val -->--}}
+{{--                                                    </div><!-- End .ratings -->--}}
+{{--                                                }--}}
+{{--                                                @endif--}}
+{{--                                                <div class="ratings">--}}
+{{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
+{{--                                                    <!-- End .ratings-val -->--}}
+{{--                                                </div><!-- End .ratings -->--}}
                                             </div><!-- End .rating-container -->
-                                            <span class="review-date">6 days ago</span>
+{{--                                            <span class="review-date">6 days ago</span>--}}
                                         </div><!-- End .col -->
                                         <div class="col">
-                                            <h4>Good, perfect size</h4>
+                                            <h4>Description</h4>
 
                                             <div class="review-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum
-                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa
-                                                    atque blanditiis commodi perspiciatis doloremque, possimus,
-                                                    explicabo, autem fugit beatae quae voluptas!</p>
+                                                <p>
+                                                    {{$f['feedback_text']}}
+                                                </p>
+{{--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum--}}
+{{--                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa--}}
+{{--                                                    atque blanditiis commodi perspiciatis doloremque, possimus,--}}
+{{--                                                    explicabo, autem fugit beatae quae voluptas!</p>--}}
                                             </div><!-- End .review-content -->
 
                                             <div class="review-action">
                                                 <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
                                                 <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
                                             </div><!-- End .review-action -->
+
                                         </div><!-- End .col-auto -->
                                     </div><!-- End .row -->
                                 </div><!-- End .review -->
+                                @endforeach
+{{--                                action="{{route('feedback.save'), $product['product_id']}}"--}}
+                                <form accept-charset="utf-8" method="post" action="{{route('feedback.save', $product['product_id'])}}" enctype="multipart/form-data">
+{{--                                   @dd($res)--}}
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="text" class="form-label">Add a feedback</label>
+                                        <textarea type="text" name="feedback_text"  class="form-control" required="">Comment... </textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="m-3 mb-1 p-2">Rating</label>
+{{--                                        <span class="form-label mt-2">Rating</span>--}}
+                                        <div class="rate">
+{{--                                            <label for="password" class="form-label">Rating</label>--}}
+{{--                                            <label for="password" class="m-3 mb-1">Rating</label>--}}
+                                            <label for="star5" title="text" >5 stars</label>
+                                            <input type="radio" id="star5" name="rating" value="5"  class="form-control"/>
+                                            <label for="star4" title="text">4 stars</label>
+                                            <input type="radio" id="star4" name="rating" value="4" class="form-control"/>
+                                            <label for="star3" title="text">3 stars</label>
+                                            <input type="radio" id="star3" name="rating" value="3" class="form-control"/>
+                                            <label for="star2" title="text">2 stars</label>
+                                            <input type="radio" id="star2" name="rating" value="2" class="form-control"/>
+                                            <label for="star1" title="text">1 star</label>
+                                            <input type="radio" id="star1" name="rating" value="1" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary" type="submit">
+                                            Submit
+                                        </button>
 
-                                <div class="review">
-                                    <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">John Doe</a></h4>
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 100%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                            </div><!-- End .rating-container -->
-                                            <span class="review-date">5 days ago</span>
-                                        </div><!-- End .col -->
-                                        <div class="col">
-                                            <h4>Very good</h4>
+                                        <!-- <input type="submit" class="btn btn-primary"> -->
+                                    </div>
+                                </form>
 
-                                            <div class="review-content">
-                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum
-                                                    blanditiis laudantium iste amet. Cum non voluptate eos enim, ab
-                                                    cumque nam, modi, quas iure illum repellendus, blanditiis
-                                                    perspiciatis beatae!</p>
-                                            </div><!-- End .review-content -->
+{{--                                <div class="review">--}}
+{{--                                    <div class="row no-gutters">--}}
+{{--                                        <div class="col-auto">--}}
+{{--                                            <h4><a href="#">John Doe</a></h4>--}}
+{{--                                            <div class="ratings-container">--}}
+{{--                                                <div class="ratings">--}}
+{{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
+{{--                                                    <!-- End .ratings-val -->--}}
+{{--                                                </div><!-- End .ratings -->--}}
+{{--                                            </div><!-- End .rating-container -->--}}
+{{--                                            <span class="review-date">5 days ago</span>--}}
+{{--                                        </div><!-- End .col -->--}}
+{{--                                        <div class="col">--}}
+{{--                                            <h4>Very good</h4>--}}
 
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                            </div><!-- End .review-action -->
-                                        </div><!-- End .col-auto -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .review -->
+{{--                                            <div class="review-content">--}}
+{{--                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum--}}
+{{--                                                    blanditiis laudantium iste amet. Cum non voluptate eos enim, ab--}}
+{{--                                                    cumque nam, modi, quas iure illum repellendus, blanditiis--}}
+{{--                                                    perspiciatis beatae!</p>--}}
+{{--                                            </div><!-- End .review-content -->--}}
+
+{{--                                            <div class="review-action">--}}
+{{--                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>--}}
+{{--                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>--}}
+{{--                                            </div><!-- End .review-action -->--}}
+{{--                                        </div><!-- End .col-auto -->--}}
+{{--                                    </div><!-- End .row -->--}}
+{{--                                </div><!-- End .review -->--}}
                             </div><!-- End .reviews -->
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
