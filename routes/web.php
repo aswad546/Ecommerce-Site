@@ -67,11 +67,15 @@ Route::get('/view-wallet',function(){
     return view('view-wallet');
 });
 
-Route::get('/vendor-discount',function(){
-    return view('vendor-discount');
-});
+Route::get('/vendor-products/discounts',[VendorController::class, 'showDiscount'])->name('show.discount');
+Route::get('/vendor-products/discounts/edit/{id}',[VendorController::class, 'editDiscount'])->name('edit.discount');
+Route::post('/vendor-products/discounts/edit/{id}/save', [VendorController::class, 'editDiscountSave'])->name('edit.discount.save');
+Route::get('/vendor-products/discounts/remove/{id}', [VendorController::class, 'removeDiscount'])->name('remove.discount');
 
-Route::get('/add-discount',function(){
+
+Route::get('/vendor-products/discounts-add',function(){
     return view('add-discount');
 });
+
+Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'saveDiscount'])->name('add.discount.save');
 
