@@ -123,6 +123,9 @@
                                     <a href="http://127.0.0.1:8000/vendor-products"><span class="cart-txt">My Products</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
+                                    <a href="http://127.0.0.1:8000/vendor-products/discounts"><span class="cart-txt">Discounts</span></a>
+                                </div><!-- End .product -->
+                                <div class="product">
                                     <a href="#"><span class="cart-txt">Settings</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
@@ -160,8 +163,9 @@
                 <div class="box-body">
                     <table width="100%" class="table table-hover" id="dataTables-example">
                         <thead>
+
                         <tr>
-                            <th>Discount ID</th>
+                            <th>Discount Code</th>
                             <th>Discount Type</th>
                             <th>Discount Amount</th>
                             <!-- <th>Status</th> -->
@@ -169,16 +173,19 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($res as $r)
                         <tr>
-                            <td>4</td>
-                            <td>Shoes</td>
-                            <td>2000</td>
+
+                            <td>{{$r['discount_code']}}</td>
+                            <td>{{$r['discount_type']}}</td>
+                            <td>{{$r['discount_amount']}}</td>
 
                             <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/edit/4" class="btn btn-outline-info btn-rounded">Edit</a>
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/4" class="btn btn-outline-danger btn-rounded">Remove</a>
+                                <a href="{{route('edit.discount',$r['discount_id'])}}" class="btn btn-outline-info btn-rounded">Edit</a>
+                                <a href="{{route('remove.discount', $r['discount_id'])}}" class="btn btn-outline-danger btn-rounded">Remove</a>
                             </td>
                         </tr>
+                        @endforeach
                         <!-- <tr>
     <td>Doris Greene</td>
     <td>ms.greene@outlook.com</td>
@@ -250,7 +257,7 @@
                 </div>
             </div>
             <div>
-                <a href="/add-discount"><button class="btn btn-primary"> Add a Discount</button></a>
+                <a href="/vendor-products/discounts-add"><button class="btn btn-primary"> Add a Discount</button></a>
 
             </div>
         </div>

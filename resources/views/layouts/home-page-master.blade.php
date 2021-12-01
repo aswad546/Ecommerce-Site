@@ -161,6 +161,10 @@
                                             <a href="{{route('show.products')}}"><span
                                                     class="cart-txt">My Products</span></a>
                                         </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.discount')}}"><span
+                                                    class="cart-txt">Discounts</span></a>
+                                        </div><!-- End .product -->
                                     @endif
                                     @if($res['user_roles'] == "user")
                                         <div class="product">

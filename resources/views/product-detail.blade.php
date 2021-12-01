@@ -9,24 +9,35 @@
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/icons/site.html">
-    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+{{--    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">--}}
+{{--    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">--}}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/icons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/icons/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('assets/images/icons/site.html')}}">
+    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
+    <link rel="shortcut icon" href="{{asset('assets/images/icons/favicon.ico')}}">
     <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+    <meta name="msapplication-config" content="{{asset('assets/images/icons/browserconfig.xml')}}">
     <meta name="theme-color" content="#ffffff">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/jquery.countdown.css')}}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/skins/skin-demo-9.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/demos/demo-9.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/magnific-popup/magnific-popup.css')}}">--}}
+{{--    <!-- Main CSS File -->--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/nouislider/nouislider.css')}}">--}}
 </head>
 
 <body>
@@ -117,8 +128,11 @@
                             <div class="product-gallery product-gallery-vertical">
                                 <div class="row">
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="assets/images/products/single/1.jpg"
+{{--                                        <img id="product-zoom" src="assets/images/products/single/1.jpg"--}}
+                                        <img id="product-zoom" src="{{asset('assets/images/'.$product['product_image'])}}"
+
                                              data-zoom-image="assets/images/products/single/1-big.jpg"
+
                                              alt="product image">
 
                                         <a href="#" id="btn-product-gallery" class="btn-product-gallery">
@@ -126,32 +140,33 @@
                                         </a>
                                     </figure><!-- End .product-main-image -->
 
-                                    <div id="product-zoom-gallery" class="product-image-gallery">
-                                        <a class="product-gallery-item active" href="#"
-                                           data-image="assets/images/products/single/1.jpg"
-                                           data-zoom-image="assets/images/products/single/1-big.jpg">
-                                            <img src="assets/images/products/single/1-small.jpg" alt="product side">
-                                        </a>
+{{--                                    <div id="product-zoom-gallery" class="product-image-gallery">--}}
+{{--                                        <a class="product-gallery-item active" href="#"--}}
+{{--                                           data-image="assets/images/products/single/1.jpg"--}}
+{{--                                           data-zoom-image="assets/images/products/single/1-big.jpg">--}}
+{{--                                            <img src="assets/images/products/single/1-small.jpg" alt="product side">--}}
+{{--                                        </a>--}}
 
-                                        <a class="product-gallery-item" href="#"
-                                           data-image="assets/images/products/single/2.jpg"
-                                           data-zoom-image="assets/images/products/single/2-big.jpg">
-                                            <img src="assets/images/products/single/2-small.jpg" alt="product cross">
-                                        </a>
+{{--                                        <a class="product-gallery-item" href="#"--}}
+{{--                                           data-image="assets/images/products/single/2.jpg"--}}
+{{--                                           data-zoom-image="assets/images/products/single/2-big.jpg">--}}
+{{--                                            <img src="assets/images/products/single/2-small.jpg" alt="product cross">--}}
+{{--                                        </a>--}}
 
-                                        <a class="product-gallery-item" href="#"
-                                           data-image="assets/images/products/single/3.jpg"
-                                           data-zoom-image="assets/images/products/single/3-big.jpg">
-                                            <img src="assets/images/products/single/3-small.jpg"
-                                                 alt="product with model">
-                                        </a>
+{{--                                        <a class="product-gallery-item" href="#"--}}
+{{--                                           data-image="assets/images/products/single/3.jpg"--}}
+{{--                                           data-zoom-image="assets/images/products/single/3-big.jpg">--}}
+{{--                                            <img src="assets/images/products/single/3-small.jpg"--}}
+{{--                                                 alt="product with model">--}}
+{{--                                        </a>--}}
 
-                                        <a class="product-gallery-item" href="#"
-                                           data-image="assets/images/products/single/4.jpg"
-                                           data-zoom-image="assets/images/products/single/4-big.jpg">
-                                            <img src="assets/images/products/single/4-small.jpg" alt="product back">
-                                        </a>
-                                    </div><!-- End .product-image-gallery -->
+{{--                                        <a class="product-gallery-item" href="#"--}}
+{{--                                           data-image="assets/images/products/single/4.jpg"--}}
+{{--                                           data-zoom-image="assets/images/products/single/4-big.jpg">--}}
+{{--                                            <img src="assets/images/products/single/4-small.jpg" alt="product back">--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+                                    <!-- End .product-image-gallery -->
                                 </div><!-- End .row -->
                             </div><!-- End .product-gallery -->
                         </div><!-- End .col-md-6 -->
@@ -178,18 +193,19 @@
                                     <p>{{$product['product_description']}} </p>
                                 </div><!-- End .product-content -->
 
-                                <div class="details-filter-row details-row-size">
-                                    <label>Color:</label>
+{{--                                <div class="details-filter-row details-row-size">--}}
+{{--                                    <label>Color:</label>--}}
 
-                                    <div class="product-nav product-nav-thumbs">
-                                        <a href="#" class="active">
-                                            <img src="assets/images/products/single/1-thumb.jpg" alt="product desc">
-                                        </a>
-                                        <a href="#">
-                                            <img src="assets/images/products/single/2-thumb.jpg" alt="product desc">
-                                        </a>
-                                    </div><!-- End .product-nav -->
-                                </div><!-- End .details-filter-row -->
+{{--                                    <div class="product-nav product-nav-thumbs">--}}
+{{--                                        <a href="#" class="active">--}}
+{{--                                            <img src="assets/images/products/single/1-thumb.jpg" alt="product desc">--}}
+{{--                                        </a>--}}
+{{--                                        <a href="#">--}}
+{{--                                            <img src="assets/images/products/single/2-thumb.jpg" alt="product desc">--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                    <!-- End .product-nav -->--}}
+{{--                                </div><!-- End .details-filter-row -->--}}
 
                                 {{--<div class="details-filter-row details-row-size">
                                     <label for="size">Size:</label>
@@ -211,51 +227,51 @@
                                     <div class="product-details-quantity">
                                         <input type="number" id="qty" class="form-control" value="1" min="1" max="10"
                                                step="1" data-decimals="0" required="" style="display: none;">
-                                      {{--  <div class="input-group  input-spinner">
+                                      <div class="input-group  input-spinner">
                                             <div class="input-group-prepend">
                                                 <button style="min-width: 26px" class="btn btn-decrement btn-spinner"
                                                         type="button"><i class="icon-minus"></i></button>
                                             </div>
                                             <input type="text" style="text-align: center" class="form-control "
-                                                   required="" placeholder="">
+                                                   required= placeholder="" value="1">
                                             <div class="input-group-append">
                                                 <button style="min-width: 26px" class="btn btn-increment btn-spinner"
                                                         type="button"><i class="icon-plus"></i></button>
                                             </div>
-                                        </div>--}}
+                                        </div>
                                     </div><!-- End .product-details-quantity -->
                                 </div><!-- End .details-filter-row -->
 
                                 <div class="product-details-action">
                                     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
 
-                                    <div class="details-action-wrapper">
-                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
-                                        <a href="#" class="btn-product btn-compare"
-                                           title="Compare"><span>Add to Compare</span></a>
-                                    </div><!-- End .details-action-wrapper -->
+{{--                                    <div class="details-action-wrapper">--}}
+{{--                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
+{{--                                        <a href="#" class="btn-product btn-compare"--}}
+{{--                                           title="Compare"><span>Add to Compare</span></a>--}}
+{{--                                    </div><!-- End .details-action-wrapper -->--}}
                                 </div><!-- End .product-details-action -->
 
-                                <div class="product-details-footer">
-                                    <div class="product-cat">
-                                        <span>Category:</span>
-                                        <a href="#">Women</a>,
-                                        <a href="#">Dresses</a>,
-                                        <a href="#">Yellow</a>
-                                    </div><!-- End .product-cat -->
+{{--                                <div class="product-details-footer">--}}
+{{--                                    <div class="product-cat">--}}
+{{--                                        <span>Category:</span>--}}
+{{--                                        <a href="#">Women</a>,--}}
+{{--                                        <a href="#">Dresses</a>,--}}
+{{--                                        <a href="#">Yellow</a>--}}
+{{--                                    </div><!-- End .product-cat -->--}}
 
-                                    <div class="social-icons social-icons-sm">
-                                        <span class="social-label">Share:</span>
-                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i
-                                                class="icon-facebook-f"></i></a>
-                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i
-                                                class="icon-twitter"></i></a>
-                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i
-                                                class="icon-instagram"></i></a>
-                                        <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
-                                                class="icon-pinterest"></i></a>
-                                    </div>
-                                </div><!-- End .product-details-footer -->
+{{--                                    <div class="social-icons social-icons-sm">--}}
+{{--                                        <span class="social-label">Share:</span>--}}
+{{--                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i--}}
+{{--                                                class="icon-facebook-f"></i></a>--}}
+{{--                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i--}}
+{{--                                                class="icon-twitter"></i></a>--}}
+{{--                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i--}}
+{{--                                                class="icon-instagram"></i></a>--}}
+{{--                                        <a href="#" class="social-icon" title="Pinterest" target="_blank"><i--}}
+{{--                                                class="icon-pinterest"></i></a>--}}
+{{--                                    </div>--}}
+{{--                                </div><!-- End .product-details-footer -->--}}
                             </div><!-- End .product-details -->
                         </div><!-- End .col-md-6 -->
                     </div><!-- End .row -->
@@ -282,24 +298,25 @@
                              aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
                                 <h3>Product Information</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,
-                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula
-                                    vulputate sem tristique cursus. </p>
-                                <ul>
-                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.</li>
-                                    <li>Vivamus finibus vel mauris ut vehicula.</li>
-                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>
-                                </ul>
+                                <p>{{$product['product_description']}}</p>
+{{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
+{{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
+{{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
+{{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
+{{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
+{{--                                    vulputate sem tristique cursus. </p>--}}
+{{--                                <ul>--}}
+{{--                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.</li>--}}
+{{--                                    <li>Vivamus finibus vel mauris ut vehicula.</li>--}}
+{{--                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>--}}
+{{--                                </ul>--}}
 
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,
-                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula
-                                    vulputate sem tristique cursus. </p>
+{{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
+{{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
+{{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
+{{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
+{{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
+{{--                                    vulputate sem tristique cursus. </p>--}}
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel"
@@ -395,7 +412,7 @@
             <div class="col-6">
                 <figure class="product-media">
                     <a href="product.html">
-                        <img src="assets/images/products/sticky/product-1.jpg" alt="Product image">
+                        <img src="{{asset('assets/images/'.$product['product_image'])}}" alt="Product image">
                     </a>
                 </figure><!-- End .product-media -->
                 <h4 class="product-title"><a href="product.html">{{$product['product_name']}}</a></h4>
@@ -404,18 +421,18 @@
 
             <div class="col-6 justify-content-end">
                 <div class="product-price">
-                    $84.00
+                    ${{number_format((float)$product['price'], 2, '.', '')}}
                 </div><!-- End .product-price -->
                 <div class="product-details-quantity">
                     <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="10" step="1"
-                           data-decimals="0" required="" style="display: none;">
+                           data-decimals="0" required="" style="display: none;" >
                     <div class="input-group  input-spinner">
                         <div class="input-group-prepend">
                             <button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button"><i
                                     class="icon-minus"></i></button>
                         </div>
-                        <input type="text" style="text-align: center" class="form-control " required="" placeholder="">
-                        <div class="input-group-append">
+                        <input type="text" style="text-align: center" class="form-control " required="" placeholder="" value="1">
+                        <div class="input-group-append"  >
                             <button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button"><i
                                     class="icon-plus"></i></button>
                         </div>
@@ -424,7 +441,7 @@
 
                 <div class="product-details-action">
                     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+{{--                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
                 </div><!-- End .product-details-action -->
             </div><!-- End .col-6 -->
         </div><!-- End .row -->
@@ -732,18 +749,21 @@
 </div><!-- End .modal -->
 
 <!-- Plugins JS File -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.hoverIntent.min.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/superfish.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/bootstrap-input-spinner.js"></script>
-<script src="assets/js/jquery.elevateZoom.min.js"></script>
-<script src="assets/js/bootstrap-input-spinner.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
+{{--<script src="{{asset('assets/js/jquery.min.js')}}"></script>--}}
+
+
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/js/superfish.min.js')}}"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-input-spinner.js')}}"></script>
+<script src="{{asset('assets/js/jquery.elevateZoom.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-input-spinner.js')}}"></script>
+<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 <!-- Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="{{asset('assets/js/main.js')}}}"></script>
 
 
 <!-- molla/product.html  22 Nov 2019 09:55:05 GMT -->

@@ -162,7 +162,7 @@
         <div class="content">
             <div class="container">
                 <div class="page-title">
-                    <h4>Add Discount</h4>
+                    <h4>Edit Discount</h4>
                 </div>
 
                 <div class="row">
@@ -179,32 +179,31 @@
                                 </div><!-- End .container -->
                             </nav>
                             <div class="card-body">
-{{--                                action="{{route('add.product.save')}}"--}}
-                                <form accept-charset="utf-8" method="post" action="{{route('add.discount.save')}}" enctype="multipart/form-data">
+                                <form accept-charset="utf-8" method="post" action="{{route('edit.discount.save', $id)}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
-{{--                                    <input type="hidden" name="_token" value="Fc6dlY2dGTgsPdmQagCa5HC3GVk3zxcAX2bxFQjH">                                    <div class="mb-3">--}}
+                                        {{--                                    <input type="hidden" name="_token" value="Fc6dlY2dGTgsPdmQagCa5HC3GVk3zxcAX2bxFQjH">                                    <div class="mb-3">--}}
                                         <label for="email" class="form-label">Discount Code</label>
-                                        <input type="text" name="discount_code" placeholder="Discount Code" class="form-control" required="">
+                                        <input type="text" name="discount_code" placeholder="Discount Code" class="form-control" required="" value="{{$res['discount_code']}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Discount Type</label>
-                                        <select name="discount_type" class="form-control" required>
+                                        <select name="discount_type" class="form-control" required="">
                                             <option value="">Select an option</option>
                                             <option value="Fixed">Fixed</option>
                                             <option value="Percentage">Percentage</option>
                                         </select>
-{{--                                        <label for="password" class="form-label">Discount Type</label>--}}
-{{--                                        <input type="text" name="discount_type" placeholder="Discount Type" class="form-control" required="">--}}
+                                        {{--                                        <label for="password" class="form-label">Discount Type</label>--}}
+                                        {{--                                        <input type="text" name="discount_type" placeholder="Discount Type" class="form-control" required="">--}}
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Discount Amount</label>
-                                        <input type="text" name="discount_amount" placeholder="Discount Amount" class="form-control" required="">
+                                        <input type="text" name="discount_amount" placeholder="Discount Amount" class="form-control" required="" value="{{$res['discount_amount']}}">
                                     </div>
 
                                     <div class="mb-3">
                                         <button class="btn btn-primary" type="submit">
-                                            Add Discount
+                                            Save
                                         </button>
                                         <button class="btn btn-secondary">
                                             Back

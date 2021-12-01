@@ -38,6 +38,17 @@ class VendorController extends Controller
         return redirect()->back();
     }
 
+    public function removeDiscount(Request $request, $id)
+    {
+        $conn = connection::connect_db();
+        if ($conn) {
+            $sql = "DELETE FROM discounts WHERE discount_id = $id";
+            $conn->exec($sql);
+            $conn = null;
+        }
+        return redirect()->back();
+    }
+
     public function editProduct(Request $request, $id)
     {
         $conn = connection::connect_db();
@@ -82,6 +93,58 @@ class VendorController extends Controller
     }
 
 
+    public function saveDiscount(Request $request)
+    {
+        $conn = connection::connect_db();
+        if ($conn) {
+
+            $id = session('user_id');
+//            dd($id);
+            $sql = "INSERT INTO discounts
+                    VALUES (DEFAULT, '$request->discount_code', '$request->discount_type', '$request->discount_amount', $id, DEFAULT, DEFAULT);";
+            $conn->exec($sql);
+            $conn = null;
+        }
+        return redirect('/vendor-products/discounts');
+    }
+
+    public function showDiscount(Request $request)
+    {
+        $conn = connection::connect_db();
+        if ($conn) {
+            $id = session('user_id');
+            $sql = "SELECT *
+                    FROM discounts
+                    WHERE user_id = $id";;
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $res = $query->fetchAll();
+            $conn = null;
+            return view('vendor-discount', compact('res'));
+        }
+
+    }
+
+    public function editDiscount(Request $request, $id)
+    {
+        $conn = connection::connect_db();
+        $res = "";
+        if ($conn) {
+            $user_id = session('user_id');
+            $sql = "SELECT *
+                    FROM discounts d
+                    WHERE d.discount_id = $id";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+            $res = $query->fetchAll()[0];
+            $conn = null;
+        }
+        return view('edit-discount', compact('id', 'res'));
+    }
+
+
     public function saveProduct(Request $request, $id)
     {
         $conn = connection::connect_db();
@@ -107,5 +170,26 @@ class VendorController extends Controller
             $conn = null;
         }
         return redirect('/vendor-products');
+    }
+
+    public function editDiscountSave(Request $request, $id)
+    {
+
+        $conn = connection::connect_db();
+
+        if ($conn) {
+
+            $discount_code = $request->discount_code ? "discount_code = '$request->discount_code'". ($request->discount_type || $request->discount_amount ? "," : "") : "";
+            $discount_type = $request->discount_type ? "discount_type = '$request->discount_type'". ($request->discount_amount ? "," : "") : "";
+            $discount_amount = $request->discount_amount ? "discount_amount = '$request->discount_amount'" : "";
+
+            $sql = "UPDATE discounts
+                    SET
+                        $discount_code $discount_type $discount_amount
+                    WHERE discount_id = $id";
+            $conn->exec($sql);
+            $conn = null;
+        }
+        return redirect('/vendor-products/discounts');
     }
 }
