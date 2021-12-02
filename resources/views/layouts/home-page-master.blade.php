@@ -170,6 +170,9 @@
                                         <div class="product">
                                             <a href="{{route('upgrade.account')}}"><span class="cart-txt">Upgrade Account</span></a>
                                         </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.wallet')}}"><span class="cart-txt">Wallet</span></a>
+                                        </div><!-- End .product -->
                                     @endif
                                     @if($res['user_roles'] == "premiumuser")
                                         <div class="product">

@@ -213,10 +213,14 @@
                     </table>
                 </div>
             </div>
-
+            <div>
+                <a href="/add-vendor"><button class="btn btn-primary"> Add Vendor</button></a>
+            </div>
 
         </div>
+
     </div>
+
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i></button>
 
     <!-- End .main -->

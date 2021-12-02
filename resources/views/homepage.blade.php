@@ -1,6 +1,6 @@
 @extends('layouts.home-page-master')
 @section('content')
-@if((session('user_id') && $res['user_roles'] == "user") || !session('user_id'))
+@if((session('user_id') && ($res['user_roles'] == "user" || $res['user_roles'] == "premiumuser")) || !session('user_id'))
         <div class="container">
         <div class="heading heading-flex mb-3">
             <!-- <div class="heading-left">
@@ -343,7 +343,7 @@
 
         <!-- End .footer -->
     </div><!-- End .page-wrapper -->
-    @elseif(session('user_id'))
+    @elseif(session('user_id') && $res['user_roles'] === 'vendor')
         <div class="container">
             <div class="heading heading-flex mb-3">
 

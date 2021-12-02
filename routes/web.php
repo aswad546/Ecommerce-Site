@@ -8,6 +8,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,15 +56,21 @@ Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.car
 Route::get('/admin-dashboard', [AdminController::class, 'adminDash'])->name('admin.dash');
 Route::get('/vendor-list', [AdminController::class, 'venList'])->name('ven.list');
 Route::get('/users-list', [AdminController::class, 'useList'])->name('use.list');
+#Route::get('/add-vendor', [VendorController::class, 'addVendor'])->name('add.vendor');
 
-Route::get('/view-wallet',function(){
-    return view('view-wallet');
+Route::get('/add-vendor',function(){
+    return view('add-vendor');
 });
+Route::post('/add-vendor/save', [AdminController::class, 'addVendorSave'])->name('add.vendor.save');
+
+Route::get('/view-wallet',[WalletController::class, 'showWallet'])->name('show.wallet');
 
 Route::get('/vendor-products/discounts',[VendorController::class, 'showDiscount'])->name('show.discount');
 Route::get('/vendor-products/discounts/edit/{id}',[VendorController::class, 'editDiscount'])->name('edit.discount');
 Route::post('/vendor-products/discounts/edit/{id}/save', [VendorController::class, 'editDiscountSave'])->name('edit.discount.save');
 Route::get('/vendor-products/discounts/remove/{id}', [VendorController::class, 'removeDiscount'])->name('remove.discount');
+
+
 
 
 Route::get('/vendor-products/discounts-add',function(){
