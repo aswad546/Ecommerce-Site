@@ -88,7 +88,7 @@
         </div><!-- End .container -->
     </nav>
 
-    <div class="content">
+    <div class="content" id="table-class">
         <div class="container">
             <div class="page-title">
                 <h3>Vendors
@@ -108,6 +108,9 @@
                         </tr>
                         </thead>
                         <tbody>
+{{--                        <div class="product-action">--}}
+{{--                            <a href="javascript:void(0)"  class="btn-product btn-cart add_cart" data-id="{{$product['product_id']}}"><span>add to cart</span></a>--}}
+{{--                        </div><!-- End .product-action -->--}}
                         @foreach($vendors as $vendor)
 
                             <tr>
@@ -117,8 +120,14 @@
 
 
                                 <td class="text-end">
-                                    <a href="http://127.0.0.1:8000/vendor-products/remove/3"
-                                       class="btn btn-outline-danger btn-rounded">Block</a>
+                                    @if($vendor['block'] == 'unblock')
+                                        <a href="javascript:void(0)"
+                                           class="btn btn-outline-danger btn-rounded block" data-id="{{$vendor['id']}}"><span>Block</span></a>
+                                    @else
+                                        <a href="javascript:void(0)"
+                                           class="btn btn-outline-success btn-rounded block" data-id="{{$vendor['id']}}"><span>Unblock</span></a>
+                                    @endif
+
                                 </td>
                             </tr>
                         @endforeach
@@ -365,6 +374,46 @@
         </div><!-- End .modal-content -->
     </div><!-- End .modal-dialog -->
 </div><!-- End .modal -->
+
+<script>
+    const block = document.getElementById('table-class');
+    const addVendorBlock = async function(e){
+        if(e.target.classList.contains('block'))
+        {
+            const id = e.target.getAttribute('data-id');
+            const data = {
+                id
+            };
+            const uri = `/add-block`;
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                    'X-CSRF-Token': '{{csrf_token()}}'
+                },
+                body: JSON.stringify(data),
+            };
+
+            try {
+                const response = await fetch(uri, options);
+                const res = await response.json();
+                if(res.success){
+                    e.target.classList.remove(res.success === 'btn-outline-success' ? 'btn-outline-danger' : 'btn-outline-success');
+                    e.target.classList.add(res.success);
+                    e.target.querySelector('span').innerText = res.block === 'block' ? 'Unblock' : 'Block';
+                    alert('added block');
+                }
+                if (res.fail) {
+                    alert('failed to add block');
+                }
+            }
+            catch(err) {
+                alert('failed to add block');
+            }
+        }
+    }
+    block.addEventListener('click', addVendorBlock);
+</script>
 
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>

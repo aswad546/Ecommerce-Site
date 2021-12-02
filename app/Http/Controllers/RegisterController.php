@@ -16,7 +16,7 @@ class RegisterController extends Controller
         if ($conn) {
             $hashed_pass = Hash::make($request->password);
             $sql = "INSERT INTO users
-                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', '$request->user_type', DEFAULT, '$hashed_pass', DEFAULT, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', '$request->user_type', DEFAULT, '$hashed_pass', 'unblock', DEFAULT, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $user_id = $conn->lastInsertId();
             Session::put('user_id', $user_id);

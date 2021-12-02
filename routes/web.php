@@ -62,6 +62,7 @@ Route::get('/add-vendor',function(){
     return view('add-vendor');
 });
 Route::post('/add-vendor/save', [AdminController::class, 'addVendorSave'])->name('add.vendor.save');
+Route::post('/add-block', [AdminController::class, 'addVendorBlock'])->name('add.vendor.block');
 
 Route::get('/view-wallet',[WalletController::class, 'showWallet'])->name('show.wallet');
 
