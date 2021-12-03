@@ -102,10 +102,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($users as $user)
                         <tr>
-                            <td>1</td>
-                            <td>Jade Jensen</td>
-                            <td>Jensen@gmail.com</td>
+                            <td>{{$user['id']}}</td>
+                            <td>{{$user['name']}}</td>
+                            <td>{{$user['email']}}</td>
 
 
 
@@ -113,27 +114,28 @@
                                 <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Brett Carter</td>
-                            <td>brett@gmail.com</td>
+                        @endforeach
+{{--                        <tr>--}}
+{{--                            <td>2</td>--}}
+{{--                            <td>Brett Carter</td>--}}
+{{--                            <td>brett@gmail.com</td>--}}
 
 
-                            <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lester Johnston</td>
-                            <td>Johnny@hotmail.com</td>
+{{--                            <td class="text-end">--}}
+{{--                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                        <tr>--}}
+{{--                            <td>3</td>--}}
+{{--                            <td>Lester Johnston</td>--}}
+{{--                            <td>Johnny@hotmail.com</td>--}}
 
 
 
-                            <td class="text-end">
-                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>
-                            </td>
-                        </tr>
+{{--                            <td class="text-end">--}}
+{{--                                <a href="http://127.0.0.1:8000/vendor-products/remove/3" class="btn btn-outline-danger btn-rounded">Block</a>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
                         <!-- <tr>
     <td>Doris Greene</td>
     <td>ms.greene@outlook.com</td>

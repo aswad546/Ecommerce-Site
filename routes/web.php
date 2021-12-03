@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,28 +52,26 @@ Route::get('/shopping-cart',function(){
 
 Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
 
-Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
 
-Route::get('/vendor-list',function(){
-    return view('vendor-list');
-});
+Route::get('/admin-dashboard', [AdminController::class, 'adminDash'])->name('admin.dash');
+Route::get('/vendor-list', [AdminController::class, 'venList'])->name('ven.list');
+Route::get('/users-list', [AdminController::class, 'useList'])->name('use.list');
+#Route::get('/add-vendor', [VendorController::class, 'addVendor'])->name('add.vendor');
 
-Route::get('/users-list',function(){
-    return view('users-list');
+Route::get('/add-vendor',function(){
+    return view('add-vendor');
 });
+Route::post('/add-vendor/save', [AdminController::class, 'addVendorSave'])->name('add.vendor.save');
+Route::post('/add-block', [AdminController::class, 'addVendorBlock'])->name('add.vendor.block');
 
-Route::get('/vendor-dashboard',function(){
-    return view('vendor-dashboard');
-});
-
-Route::get('/view-wallet',function(){
-    return view('view-wallet');
-});
+Route::get('/view-wallet',[WalletController::class, 'showWallet'])->name('show.wallet');
 
 Route::get('/vendor-products/discounts',[VendorController::class, 'showDiscount'])->name('show.discount');
 Route::get('/vendor-products/discounts/edit/{id}',[VendorController::class, 'editDiscount'])->name('edit.discount');
 Route::post('/vendor-products/discounts/edit/{id}/save', [VendorController::class, 'editDiscountSave'])->name('edit.discount.save');
 Route::get('/vendor-products/discounts/remove/{id}', [VendorController::class, 'removeDiscount'])->name('remove.discount');
+
 
 Route::get('/vendor-products/discounts-add',function(){
     return view('add-discount');

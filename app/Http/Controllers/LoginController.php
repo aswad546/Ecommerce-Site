@@ -22,6 +22,8 @@ class LoginController extends Controller
             $query->execute();
             $result = $query->setFetchMode(PDO::FETCH_ASSOC);
             $res = $query->fetchAll();
+            if($res[0]['block'] == 'block')
+                return redirect('/');
             if($res && Hash::check($request->password, $res[0]['password'])){
                 Session::put('user_id', $res[0]['id']);
             }
