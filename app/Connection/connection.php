@@ -21,4 +21,25 @@ class connection
         }
         return $conn;
     }
+
+    public static function query($sql)
+    {
+        $conn = self::connect_db();
+        if ($conn) {
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+            return $query->fetchAll();
+        }
+        $conn = null;
+        return null;
+    }
+
+    public static function execQuery($sql) {
+        $conn = self::connect_db();
+        if($conn) {
+            $conn->exec($sql);
+        }
+        $conn = null;
+    }
 }

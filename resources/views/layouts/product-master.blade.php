@@ -86,7 +86,9 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
+                                    @php $total_price = 0; @endphp
                                     @foreach($cart as $c)
+                                        @php $total_price+=$c['price'] * $c['cart_qty'] @endphp
                                         <div class="product">
                                             <div class="product-cart-details">
                                                 <h4 class="product-title">
@@ -95,7 +97,7 @@
 
                                                 <span class="cart-product-info">
                                                 <span class="cart-product-qty">{{$c['cart_qty']}}</span>
-                                                x ${{$c['price']}}
+                                                x ${{number_format((float)$c['price'], 2, '.', '')}}
                                             </span>
                                             </div><!-- End .product-cart-details -->
 
@@ -114,7 +116,7 @@
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
 
-                                    <span class="cart-total-price">$160.00</span>
+                                    <span class="cart-total-price">${{number_format((float)$total_price, 2, '.', '')}}</span>
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
@@ -406,6 +408,7 @@
 
                             <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i>
                             </button>
+                            @include('layouts.partials.success-modal')
 
                             <!-- End .main -->
 
@@ -621,9 +624,12 @@
 
                     @include('layouts.partials.sign-up-modal')
                         <script>
-                            const add_cart = document.getElementById('product_container');
+                            const add_cart = document.querySelector('.owl-stage-outer');
+                            const success_modal = document.getElementById('success_modal');
+                            const dropdown_cart = document.querySelector('.dropdown-cart-products');
                             const addToCart = async function(e){
-                                if(e.target.classList.contains('add_cart'))
+                                console.log(e.target);
+                                if(e.target.classList.contains('add_cart') || e.target.parentElement.classList.contains('add_cart'))
                                 {
                                     const id = e.target.getAttribute('data-id');
                                     const data = {
@@ -643,18 +649,20 @@
                                     try {
                                         const response = await fetch(uri, options);
                                         const discount = await response.json();
-                                        if(response.success){
-                                            alert('added to cart');
+                                        if(discount.success){
+                                            success_modal.click();
                                         }
                                         if (discount.fail) {
                                             alert('failed to apply promocode');
                                         }
                                     }
                                     catch(err) {
-                                        alert('failed to apply promocode');
+                                        console.log(err);
+                                        alert('failed to add to cart');
                                     }
                                 }
                             }
+                            // console.log(add_cart);
                             add_cart.addEventListener('click', addToCart);
                         </script>
                     <!-- Plugins JS File -->
