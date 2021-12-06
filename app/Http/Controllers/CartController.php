@@ -31,4 +31,28 @@ class CartController extends Controller
 
         return response()->json(['success' => 'SUCCESS!']);
     }
+
+    public function showCart(Request $request){
+        $conn = connection::connect_db();
+//        dd($request->all());
+
+        $id = session('user_id');
+//        dd($id);
+        $sql = "SELECT *
+                    FROM cart c
+                    JOIN products p on p.product_id = c.product_id
+                    JOIN users u on u.id = c.user_id
+                    WHERE c.user_id = $id";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+        $res = $query->fetchAll();
+//        dd($res);
+        return view('shopping-cart', compact('res'));
+//        return view('edit-user-profile', compact('res'));
+
+    }
+    public function applyPromocode(Request $request){
+        dd($request->all());
+    }
 }
