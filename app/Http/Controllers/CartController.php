@@ -34,12 +34,9 @@ class CartController extends Controller
     }
 
 
-
     public function addCart(Request $request, $id) : RedirectResponse
     {
-//        $id = session('user_id');
         $item = '';
-//        dd($id);
         $sql = "SELECT *
                     FROM cart
                     WHERE product_id = $request->id";
@@ -55,6 +52,26 @@ class CartController extends Controller
         }
         connection::execQuery($sql);
         return redirect()->to(route('shop.product.detail', $id));
-//        return view('product-detail', compact($id));
+    }
+
+    public function showCart(Request $request){
+        $conn = connection::connect_db();
+
+        $id = session('user_id');
+        $sql = "SELECT *
+                    FROM cart c
+                    JOIN products p on p.product_id = c.product_id
+                    JOIN users u on u.id = c.user_id
+                    WHERE c.user_id = $id";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $result = $query->setFetchMode(PDO::FETCH_ASSOC);
+        $res = $query->fetchAll();
+        return view('shopping-cart', compact('res'));
+
+    }
+
+    public function applyPromocode(Request $request){
+        dd($request->all());
     }
 }

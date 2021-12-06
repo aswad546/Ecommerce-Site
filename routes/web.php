@@ -46,9 +46,10 @@ Route::get('/shop/shoes', [ShopController::class, 'showShoes'])->name('shop.shoe
 
 Route::post('/search-products', [ShopController::class, 'searchProducts'])->name('search.products');
 
-Route::get('/shopping-cart',function(){
-    return view('shopping-cart');
-});
+Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('show.cart');
+//Route::get('/shopping-cart',function(){
+//    return view('shopping-cart');
+//});
 
 Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
 
@@ -83,3 +84,5 @@ Route::post('/product-detail/save/{id}',[FeedbackController::class, 'saveFeedbac
 
 Route::post('/product-detail/{id}/save',[CartController::class, 'addCart'])->name('add.cart.save');
 
+
+Route::post('/cart-promo-code', [CartController::class, 'applyPromocode'])->name('apply.promo.code');

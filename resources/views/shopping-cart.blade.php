@@ -110,20 +110,22 @@
                                 </thead>
 
                                 <tbody>
+                                @foreach($res as $r)
                                 <tr>
                                     <td class="product-col">
                                         <div class="product">
                                             <figure class="product-media">
                                                 <a href="#">
-                                                    <img src="assets/images/products/table/product-1.jpg" alt="Product image">
+                                                    <img src="{{URL::asset('assets/images/'.$r['product_image'])}}" width="100px" alt="Product image">
                                                 </a>
                                             </figure>
 
                                             <h3 class="product-title">
-                                                <a href="#">Beige knitted elastic runner shoes</a>
+                                                <a href="#">{{$r['product_name']}}</a>
                                             </h3><!-- End .product-title -->
                                         </div><!-- End .product -->
                                     </td>
+<<<<<<< HEAD
                                     <td class="price-col">$84.00</td>
                                     <td class="quantity-col">
 {{--                                        <div class="cart-product-quantity">--}}
@@ -131,41 +133,64 @@
 {{--                                        </div>--}}
 
 {{--                                        </div>--}}
+=======
+                                    <td class="price-col">${{number_format((float)$r['price'], 2, '.', '')}}</td>
+                                    <input type="hidden" class="price-item" value="{{$r['price']}}">
+                                    <td class="quantity-col" style="text-align: center">{{$r['cart_qty']}}
+                                        {{--<div class="cart-product-quantity">
+                                            <input type="number" class="form-control qty" value="{{$r['cart_qty']}}" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;">
+                                            <div class="input-group  input-spinner">
+                                                <div class="input-group-prepend">
+                                                </div>
+                                            </div>
+                                        </div>--}}
+>>>>>>> c0c114ddc560ae518be9fbc2b2c04fb0077b074c
                                     </td>
-                                    <td class="total-col">$84.00</td>
+                                    <td class="total-col">${{number_format((float)$r['price'] * $r['cart_qty'], 2, '.', '')}}</td>
                                     <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
                                 </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="assets/images/products/table/product-2.jpg" alt="Product image">
-                                                </a>
-                                            </figure>
+                                @endforeach
+{{--                                <tr>--}}
+{{--                                    <td class="product-col">--}}
+{{--                                        <div class="product">--}}
+{{--                                            <figure class="product-media">--}}
+{{--                                                <a href="#">--}}
+{{--                                                    <img src="assets/images/products/table/product-2.jpg" alt="Product image">--}}
+{{--                                                </a>--}}
+{{--                                            </figure>--}}
 
-                                            <h3 class="product-title">
-                                                <a href="#">Blue utility pinafore denim dress</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$76.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">
-                                        </div>
-                                    </td>
-                                    <td class="total-col">$76.00</td>
-                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                                </tr>
+{{--                                            <h3 class="product-title">--}}
+{{--                                                <a href="#">Blue utility pinafore denim dress</a>--}}
+{{--                                            </h3><!-- End .product-title -->--}}
+{{--                                        </div><!-- End .product -->--}}
+{{--                                    </td>--}}
+{{--                                    <td class="price-col">$76.00</td>--}}
+{{--                                    <td class="quantity-col">--}}
+{{--                                        <div class="cart-product-quantity">--}}
+{{--                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">--}}
+{{--                                        </div>--}}
+{{--                                    </td>--}}
+{{--                                    <td class="total-col">$76.00</td>--}}
+{{--                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>--}}
+{{--                                </tr>--}}
                                 </tbody>
                             </table><!-- End .table table-wishlist -->
 
                             <div class="cart-bottom">
                                 <div class="cart-discount">
+                                    <form id="promocode_form" action="#" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="input-group">
+                                            <input type="text" class="form-control promo-code" required="" placeholder="Promo code">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
+                                            </div><!-- .End .input-group-append -->
+                                        </div><!-- End .input-group -->
+                                    </form>
+
                                     <form action="#">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" required="" placeholder="Promo code">
+                                            <input type="text" class="form-control" required="" placeholder="Use wallet">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
                                             </div><!-- .End .input-group-append -->
@@ -173,7 +198,7 @@
                                     </form>
                                 </div><!-- End .cart-discount -->
 
-                                <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
+{{--                                <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>--}}
                             </div><!-- End .cart-bottom -->
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
@@ -201,30 +226,30 @@
                                         <td>$0.00</td>
                                     </tr><!-- End .summary-shipping-row -->
 
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="standard-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="standard-shipping">Standard:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>$10.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
+{{--                                    <tr class="summary-shipping-row">--}}
+{{--                                        <td>--}}
+{{--                                            <div class="custom-control custom-radio">--}}
+{{--                                                <input type="radio" id="standard-shipping" name="shipping" class="custom-control-input">--}}
+{{--                                                <label class="custom-control-label" for="standard-shipping">Standard:</label>--}}
+{{--                                            </div><!-- End .custom-control -->--}}
+{{--                                        </td>--}}
+{{--                                        <td>$10.00</td>--}}
+{{--                                    </tr><!-- End .summary-shipping-row -->--}}
 
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="express-shipping">Express:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>$20.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
+{{--                                    <tr class="summary-shipping-row">--}}
+{{--                                        <td>--}}
+{{--                                            <div class="custom-control custom-radio">--}}
+{{--                                                <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">--}}
+{{--                                                <label class="custom-control-label" for="express-shipping">Express:</label>--}}
+{{--                                            </div><!-- End .custom-control -->--}}
+{{--                                        </td>--}}
+{{--                                        <td>$20.00</td>--}}
+{{--                                    </tr><!-- End .summary-shipping-row -->--}}
 
-                                    <tr class="summary-shipping-estimate">
-                                        <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
-                                        <td>&nbsp;</td>
-                                    </tr><!-- End .summary-shipping-estimate -->
+{{--                                    <tr class="summary-shipping-estimate">--}}
+{{--                                        <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>--}}
+{{--                                        <td>&nbsp;</td>--}}
+{{--                                    </tr><!-- End .summary-shipping-estimate -->--}}
 
                                     <tr class="summary-total">
                                         <td>Total:</td>
@@ -536,6 +561,54 @@
 </div><!-- End .modal -->
 
 <!-- Plugins JS File -->
+{{--<script>
+   /* const price = document.querySelector('.price-item');*/
+    const cart = document.querySelector('.cart');
+/*    const total = document.querySelector('.total-col');*/
+    const handleChange = function(e){
+        if(e.target.classList.contains('qty')){
+            const price = e.target.parentElement.parentElement.previousElementSibling;
+            const total =  e.target.parentElement.parentElement.nextElementSibling;
+            total.innerHTML = `$${(price.value * e.target.value).toFixed(2)}`;
+        }
+
+    }
+    cart.addEventListener('change', handleChange);
+</script>--}}
+<script>
+    const promocode_form = document.querySelector('#promocode_form');
+    const handleSubmit = async function(e) {
+        e.preventDefault();
+        const promocode = promocode_form.querySelector('.promo-code').value;
+        const data = {
+            promocode
+        };
+        const uri = `/cart-promo-code`;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'X-CSRF-Token': '{{csrf_token()}}'
+            },
+            body: JSON.stringify(data),
+        };
+        try {
+            const response = await fetch(uri, options);
+            const promocode = await response.json();
+            if(promocode.success){
+                alert('added to cart');
+            }
+            if (promocode.fail) {
+                alert('failed to add to cart');
+            }
+        }
+        catch(err) {
+            alert('failed to add to cart');
+        }
+
+    }
+    promocode_form.addEventListener('submit', handleSubmit);
+</script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/jquery.hoverIntent.min.js"></script>
