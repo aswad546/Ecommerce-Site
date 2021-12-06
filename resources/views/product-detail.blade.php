@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-{{--@dd($product['product_id'])--}}
-<html lang="en"><!-- molla/product.html  22 Nov 2019 09:54:50 GMT -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,12 +32,13 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/skins/skin-demo-9.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/demos/demo-9.css')}}">
-{{--    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/magnific-popup/magnific-popup.css')}}">--}}
-{{--    <!-- Main CSS File -->--}}
-{{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('assets/css/plugins/nouislider/nouislider.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/nouislider/nouislider.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/success-modal.css')}}">
 </head>
 
 <body>
@@ -227,8 +227,8 @@
                                     <label for="qty">Qty:</label>
                                     <div class="product-details-quantity">
                                         <input type="number" id="qty" class="form-control" value="1" min="1" max="10"
-                                               step="1" data-decimals="0" required="" style="display: none;">
-                                      <div class="input-group  input-spinner">
+                                               step="1" data-decimals="0" required="" style="">
+                                      {{--<div class="input-group  input-spinner">
                                             <div class="input-group-prepend">
                                                 <button style="min-width: 26px" class="btn btn-decrement btn-spinner"
                                                         type="button"><i class="icon-minus"></i></button>
@@ -239,7 +239,7 @@
                                                 <button style="min-width: 26px" class="btn btn-increment btn-spinner"
                                                         type="button"><i class="icon-plus"></i></button>
                                             </div>
-                                        </div>
+                                        </div>--}}
                                     </div><!-- End .product-details-quantity -->
                                 </div><!-- End .details-filter-row -->
 
@@ -526,7 +526,7 @@
         </div><!-- End .row -->
     </div><!-- End .container -->
 </div><!-- End .sticky-bar -->
-
+@include('layouts.partials.success-modal')
 <!-- Mobile Menu -->
 <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
 
