@@ -126,9 +126,11 @@
                                     </td>
                                     <td class="price-col">$84.00</td>
                                     <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">
-                                        </div>
+{{--                                        <div class="cart-product-quantity">--}}
+{{--                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">--}}
+{{--                                        </div>--}}
+
+{{--                                        </div>--}}
                                     </td>
                                     <td class="total-col">$84.00</td>
                                     <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>

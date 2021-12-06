@@ -173,6 +173,7 @@
                         </div><!-- End .col-md-6 -->
 
                         <div class="col-md-6">
+
                             <div class="product-details">
 
                                 <h1 class="product-title">{{$product['product_name']}}</h1>
@@ -222,12 +223,24 @@
 
                                     <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
                                 </div><!-- End .details-filter-row -->--}}
-
-                                <div class="details-filter-row details-row-size">
+                                <form accept-charset="utf-8" method="post" action="{{route('add.cart.save', $product['product_id'])}}" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="details-filter-row details-row-size">
                                     <label for="qty">Qty:</label>
                                     <div class="product-details-quantity">
-                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10"
-                                               step="1" data-decimals="0" required="" style="">
+                                        <div class="input-group  input-spinner">
+                                            <div class="input-group-prepend">
+                                                <button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button">
+                                                    <i class="icon-minus"></i></button>
+                                            </div>
+                                            <input name="quantity" type="text" style="text-align: center" class="form-control " required="" placeholder="" value="1">
+                                            <div class="input-group-append"><button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button">
+                                                    <i class="icon-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+{{--                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10"--}}
+{{--                                               step="1" data-decimals="0" required="" style="">--}}
                                       {{--<div class="input-group  input-spinner">
                                             <div class="input-group-prepend">
                                                 <button style="min-width: 26px" class="btn btn-decrement btn-spinner"
@@ -244,7 +257,7 @@
                                 </div><!-- End .details-filter-row -->
 
                                 <div class="product-details-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <button class="btn-product btn-cart"><span>add to cart</span></button>
 
 {{--                                    <div class="details-action-wrapper">--}}
 {{--                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
@@ -252,6 +265,7 @@
 {{--                                           title="Compare"><span>Add to Compare</span></a>--}}
 {{--                                    </div><!-- End .details-action-wrapper -->--}}
                                 </div><!-- End .product-details-action -->
+                                </form>
 
 {{--                                <div class="product-details-footer">--}}
 {{--                                    <div class="product-cat">--}}
@@ -274,6 +288,7 @@
 {{--                                    </div>--}}
 {{--                                </div><!-- End .product-details-footer -->--}}
                             </div><!-- End .product-details -->
+
                         </div><!-- End .col-md-6 -->
                     </div><!-- End .row -->
                 </div><!-- End .product-details-top -->

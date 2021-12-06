@@ -80,3 +80,6 @@ Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'sa
 
 
 Route::post('/product-detail/save/{id}',[FeedbackController::class, 'saveFeedback'])->name('feedback.save');
+
+Route::post('/product-detail/{id}/save',[CartController::class, 'addCart'])->name('add.cart.save');
+
