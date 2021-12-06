@@ -125,26 +125,14 @@
                                             </h3><!-- End .product-title -->
                                         </div><!-- End .product -->
                                     </td>
-<<<<<<< HEAD
+
                                     <td class="price-col">$84.00</td>
                                     <td class="quantity-col">
-{{--                                        <div class="cart-product-quantity">--}}
-{{--                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">--}}
-{{--                                        </div>--}}
 
-{{--                                        </div>--}}
-=======
+
                                     <td class="price-col">${{number_format((float)$r['price'], 2, '.', '')}}</td>
                                     <input type="hidden" class="price-item" value="{{$r['price']}}">
                                     <td class="quantity-col" style="text-align: center">{{$r['cart_qty']}}
-                                        {{--<div class="cart-product-quantity">
-                                            <input type="number" class="form-control qty" value="{{$r['cart_qty']}}" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;">
-                                            <div class="input-group  input-spinner">
-                                                <div class="input-group-prepend">
-                                                </div>
-                                            </div>
-                                        </div>--}}
->>>>>>> c0c114ddc560ae518be9fbc2b2c04fb0077b074c
                                     </td>
                                     <td class="total-col">${{number_format((float)$r['price'] * $r['cart_qty'], 2, '.', '')}}</td>
                                     <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>

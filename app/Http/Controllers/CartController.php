@@ -34,6 +34,7 @@ class CartController extends Controller
     }
 
 
+
     public function addCart(Request $request, $id) : RedirectResponse
     {
         $item = '';
@@ -56,8 +57,10 @@ class CartController extends Controller
 
     public function showCart(Request $request){
         $conn = connection::connect_db();
+//        dd($request->all());
 
         $id = session('user_id');
+//        dd($id);
         $sql = "SELECT *
                     FROM cart c
                     JOIN products p on p.product_id = c.product_id

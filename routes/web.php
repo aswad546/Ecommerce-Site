@@ -84,5 +84,4 @@ Route::post('/product-detail/save/{id}',[FeedbackController::class, 'saveFeedbac
 
 Route::post('/product-detail/{id}/save',[CartController::class, 'addCart'])->name('add.cart.save');
 
-
 Route::post('/cart-promo-code', [CartController::class, 'applyPromocode'])->name('apply.promo.code');
