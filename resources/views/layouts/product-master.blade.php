@@ -647,11 +647,11 @@
                                             alert('added to cart');
                                         }
                                         if (discount.fail) {
-                                            alert('failed to add to cart');
+                                            alert('failed to apply promocode');
                                         }
                                     }
                                     catch(err) {
-                                        alert('failed to add to cart');
+                                        alert('failed to apply promocode');
                                     }
                                 }
                             }
