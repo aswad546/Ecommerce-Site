@@ -17,7 +17,7 @@
                                             </div><!-- End .product-action-vertical -->
 
                                             <div class="product-action">
-                                                <a href="javascript:void(0)"  class="btn-product btn-cart add_cart" data-id="{{$product['product_id']}}"><span>add to cart</span></a>
+                                                <a href="javascript:void(0)"  class="btn-product btn-cart add_cart" data-id="{{$product['product_id']}}"><span data-id="{{$product['product_id']}}">add to cart</span></a>
                                             </div><!-- End .product-action -->
                                         </figure><!-- End .product-media -->
 

@@ -19,6 +19,8 @@
             text-align: center;
             font-size: 50px;
             border: 3px solid #000;
+            margin-left: 250px;
+
         }
     </style>
 </head>
@@ -41,7 +43,7 @@
 
         <div class="page-content">
             <div class="container">
-                <span><div class="circle">50,000</div></span>
+                <span><div class="circle">{{$wallet['wallet_amount']}}</div></span>
 
             </div><!-- End .container -->
         </div><!-- End .page-content -->
