@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Connection\connection;
+use App\Exports\TransactionExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use PDO;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class VendorController extends Controller
 {
@@ -150,16 +153,16 @@ class VendorController extends Controller
         $conn = connection::connect_db();
         if ($conn) {
             $name1 = "";
-            if($request->file('product_image')) {
+            if ($request->file('product_image')) {
                 $name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
                 $destinationPath = public_path('\assets\images');
                 $request->file('product_image')->move($destinationPath, $name1);
             }
-            $product_name = $request->product_name ? "product_name = '$request->product_name'". ($request->file('product_image') || $request->category || $request->price || $request->description || $request->quantity ? "," : "") : "";
-            $product_image = $request->file('product_image') ? "product_image = '$name1'". ($request->price || $request->category || $request->description || $request->quantity ? "," : "") : "";
-            $product_price = $request->price ? "price = '$request->price'". ($request->quantity || $request->description || $request->category ? "," : "") : "";
-            $product_quantity = $request->quantity ? "quantity = '$request->quantity'". ($request->category || $request->description ? "," : "") : "";
-            $product_category = $request->category ? "category = '$request->category'". ($request->description ? "," : "") : "";
+            $product_name = $request->product_name ? "product_name = '$request->product_name'" . ($request->file('product_image') || $request->category || $request->price || $request->description || $request->quantity ? "," : "") : "";
+            $product_image = $request->file('product_image') ? "product_image = '$name1'" . ($request->price || $request->category || $request->description || $request->quantity ? "," : "") : "";
+            $product_price = $request->price ? "price = '$request->price'" . ($request->quantity || $request->description || $request->category ? "," : "") : "";
+            $product_quantity = $request->quantity ? "quantity = '$request->quantity'" . ($request->category || $request->description ? "," : "") : "";
+            $product_category = $request->category ? "category = '$request->category'" . ($request->description ? "," : "") : "";
             $product_description = $request->description ? "product_description = '$request->description'" : "";
             $sql = "UPDATE products
                     SET
@@ -179,8 +182,8 @@ class VendorController extends Controller
 
         if ($conn) {
 
-            $discount_code = $request->discount_code ? "discount_code = '$request->discount_code'". ($request->discount_type || $request->discount_amount ? "," : "") : "";
-            $discount_type = $request->discount_type ? "discount_type = '$request->discount_type'". ($request->discount_amount ? "," : "") : "";
+            $discount_code = $request->discount_code ? "discount_code = '$request->discount_code'" . ($request->discount_type || $request->discount_amount ? "," : "") : "";
+            $discount_type = $request->discount_type ? "discount_type = '$request->discount_type'" . ($request->discount_amount ? "," : "") : "";
             $discount_amount = $request->discount_amount ? "discount_amount = '$request->discount_amount'" : "";
 
             $sql = "UPDATE discounts
@@ -192,4 +195,12 @@ class VendorController extends Controller
         }
         return redirect('/vendor-products/discounts');
     }
+
+    public function exportAllTransactions(): BinaryFileResponse
+    {
+
+        return Excel::download(new TransactionExport(2018), 'transaction_history.xlsx');
+    }
+
+
 }

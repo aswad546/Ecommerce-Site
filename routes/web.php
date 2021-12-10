@@ -43,17 +43,15 @@ Route::get('/vendor-products/remove/{id}', [VendorController::class, 'removeProd
 Route::get('/shop/tops', [ShopController::class, 'showTops'])->name('shop.tops');
 Route::get('/shop/bottoms', [ShopController::class, 'showBottoms'])->name('shop.bottoms');
 Route::get('/shop/shoes', [ShopController::class, 'showShoes'])->name('shop.shoes');
-
 Route::post('/search-products', [ShopController::class, 'searchProducts'])->name('search.products');
 
-Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('show.cart');
+
 //Route::get('/shopping-cart',function(){
 //    return view('shopping-cart');
 //});
 
 Route::get('/product-detail/{id}',[ShopController::class, 'showProductDetail'])->name('shop.product.detail');
 
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
 
 Route::get('/admin-dashboard', [AdminController::class, 'adminDash'])->name('admin.dash');
 Route::get('/vendor-list', [AdminController::class, 'venList'])->name('ven.list');
@@ -72,16 +70,26 @@ Route::get('/vendor-products/discounts',[VendorController::class, 'showDiscount'
 Route::get('/vendor-products/discounts/edit/{id}',[VendorController::class, 'editDiscount'])->name('edit.discount');
 Route::post('/vendor-products/discounts/edit/{id}/save', [VendorController::class, 'editDiscountSave'])->name('edit.discount.save');
 Route::get('/vendor-products/discounts/remove/{id}', [VendorController::class, 'removeDiscount'])->name('remove.discount');
-
-
+Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'saveDiscount'])->name('add.discount.save');
 Route::get('/vendor-products/discounts-add',function(){
     return view('add-discount');
 });
-Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'saveDiscount'])->name('add.discount.save');
+
+
 
 
 Route::post('/product-detail/save/{id}',[FeedbackController::class, 'saveFeedback'])->name('feedback.save');
 
-Route::post('/product-detail/{id}/save',[CartController::class, 'addCart'])->name('add.cart.save');
 
+Route::post('/cart-wallet', [WalletController::class, 'useWallet'])->name('use.wallet');
+
+
+Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('show.cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
+Route::post('/product-detail/{id}/save',[CartController::class, 'addCart'])->name('add.cart.save');
 Route::post('/cart-promo-code', [CartController::class, 'applyPromocode'])->name('apply.promo.code');
+Route::get('/cart/checkout', [CartController::class, 'checkoutPage'])->name('checkout.page');
+Route::post('/cart/checkout/order-confirm', [CartController::class, 'confirmOrder'])->name('confirm.order');
+
+
+Route::get('/transaction-history/export', [VendorController::class, 'exportAllTransactions'])->name('transaction.history.export');

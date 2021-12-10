@@ -42,4 +42,14 @@ class connection
         }
         $conn = null;
     }
+
+    public static function getLastId(){
+        $conn = self::connect_db();
+        $id = "";
+        if($conn){
+            $id = $conn->lastInsertId();
+        }
+        $conn = null;
+        return $id;
+    }
 }

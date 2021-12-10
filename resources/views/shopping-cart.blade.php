@@ -1,5 +1,6 @@
-<html lang="en"><head></head><body>&lt;
-
+<html lang="en">
+<head></head>
+<body>&lt;
 
 
 <!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
@@ -7,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Molla - Bootstrap eCommerce Template</title>
+<title>Shopping Cart</title>
 <meta name="keywords" content="HTML5 Template">
 <meta name="description" content="Molla - Bootstrap eCommerce Template">
 <meta name="author" content="p-themes">
@@ -29,7 +30,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 
-
 <div class="page-wrapper">
     <header class="header header-6">
 
@@ -42,7 +42,8 @@
                             <div class="header-search-wrapper search-wrapper-wide">
                                 <label for="q" class="sr-only">Search</label>
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required="">
+                                <input type="search" class="form-control" name="q" id="q"
+                                       placeholder="Search product ..." required="">
                             </div><!-- End .header-search-wrapper -->
                         </form>
                     </div><!-- End .header-search -->
@@ -54,7 +55,8 @@
 
                     <!-- End .cart-dropdown -->
                     <div class="dropdown cart-dropdown">
-                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false" data-display="static">
                             <i class="icon-user"></i>
                             <span class="cart-txt">Ibrahim</span>
                         </a>
@@ -62,10 +64,12 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/edit-profile"><span class="cart-txt">Edit Profile</span></a>
+                                    <a href="http://127.0.0.1:8000/edit-profile"><span
+                                            class="cart-txt">Edit Profile</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/vendor-products"><span class="cart-txt">My Products</span></a>
+                                    <a href="http://127.0.0.1:8000/vendor-products"><span
+                                            class="cart-txt">My Products</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
                                     <a href="http://127.0.0.1:8000/logout"><span class="cart-txt">Logout</span></a>
@@ -104,6 +108,7 @@
                                     <th>Product</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
+{{--                                    <th>Discount</th>--}}
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
@@ -111,56 +116,63 @@
 
                                 <tbody>
                                 @foreach($res as $r)
-                                <tr>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="{{URL::asset('assets/images/'.$r['product_image'])}}" width="100px" alt="Product image">
-                                                </a>
-                                            </figure>
+                                    <tr>
+                                        <td class="product-col">
+                                            <div class="product">
+                                                <figure class="product-media">
+                                                    <a href="#">
+                                                        <img src="{{URL::asset('assets/images/'.$r['product_image'])}}"
+                                                             width="100px" alt="Product image">
+                                                    </a>
+                                                </figure>
 
-                                            <h3 class="product-title">
-                                                <a href="#">{{$r['product_name']}}</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
+                                                <h3 class="product-title">
+                                                    <a href="#">{{$r['product_name']}}</a>
+                                                </h3><!-- End .product-title -->
+                                            </div><!-- End .product -->
+                                        </td>
 
-                                    <td class="price-col">$84.00</td>
-                                    <td class="quantity-col">
+                                        {{--<td class="price-col">$84.00</td>
+                                        <td class="quantity-col"></td>--}}
 
 
-                                    <td class="price-col">${{number_format((float)$r['price'], 2, '.', '')}}</td>
-                                    <input type="hidden" class="price-item" value="{{$r['price']}}">
-                                    <td class="quantity-col" style="text-align: center">{{$r['cart_qty']}}
-                                    </td>
-                                    <td class="total-col">${{number_format((float)$r['price'] * $r['cart_qty'], 2, '.', '')}}</td>
-                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                                </tr>
+                                        <td class="price-col">${{number_format((float)$r['price'], 2, '.', '')}}</td>
+                                        <input type="hidden" class="price-item" value="{{$r['price']}}">
+                                        <td class="quantity-col" style="text-align: center">{{$r['cart_qty']}}
+                                        </td>
+{{--                                        <td class="discount-col">0</td>--}}
+                                        <td class="total-col">
+                                            ${{number_format((float)$r['price'] * $r['cart_qty'], 2, '.', '')}}</td>
+                                        <input type="hidden" class="total-price-{{$r['product_id']}} each-price"
+                                               value="{{$r['price'] * $r['cart_qty']}}">
+                                        <td class="remove-col">
+                                            <button class="btn-remove"><i class="icon-close"></i></button>
+                                        </td>
+                                    </tr>
                                 @endforeach
-{{--                                <tr>--}}
-{{--                                    <td class="product-col">--}}
-{{--                                        <div class="product">--}}
-{{--                                            <figure class="product-media">--}}
-{{--                                                <a href="#">--}}
-{{--                                                    <img src="assets/images/products/table/product-2.jpg" alt="Product image">--}}
-{{--                                                </a>--}}
-{{--                                            </figure>--}}
+                                {{--                                <tr>--}}
+                                {{--                                    <td class="product-col">--}}
+                                {{--                                        <div class="product">--}}
+                                {{--                                            <figure class="product-media">--}}
+                                {{--                                                <a href="#">--}}
+                                {{--                                                    <img src="assets/images/products/table/product-2.jpg" alt="Product image">--}}
+                                {{--                                                </a>--}}
+                                {{--                                            </figure>--}}
 
-{{--                                            <h3 class="product-title">--}}
-{{--                                                <a href="#">Blue utility pinafore denim dress</a>--}}
-{{--                                            </h3><!-- End .product-title -->--}}
-{{--                                        </div><!-- End .product -->--}}
-{{--                                    </td>--}}
-{{--                                    <td class="price-col">$76.00</td>--}}
-{{--                                    <td class="quantity-col">--}}
-{{--                                        <div class="cart-product-quantity">--}}
-{{--                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">--}}
-{{--                                        </div>--}}
-{{--                                    </td>--}}
-{{--                                    <td class="total-col">$76.00</td>--}}
-{{--                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>--}}
-{{--                                </tr>--}}
+                                {{--                                            <h3 class="product-title">--}}
+                                {{--                                                <a href="#">Blue utility pinafore denim dress</a>--}}
+                                {{--                                            </h3><!-- End .product-title -->--}}
+                                {{--                                        </div><!-- End .product -->--}}
+                                {{--                                    </td>--}}
+                                {{--                                    <td class="price-col">$76.00</td>--}}
+                                {{--                                    <td class="quantity-col">--}}
+                                {{--                                        <div class="cart-product-quantity">--}}
+                                {{--                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend">--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </td>--}}
+                                {{--                                    <td class="total-col">$76.00</td>--}}
+                                {{--                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>--}}
+                                {{--                                </tr>--}}
                                 </tbody>
                             </table><!-- End .table table-wishlist -->
 
@@ -169,26 +181,34 @@
                                     <form id="promocode_form" action="#" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="input-group">
-                                            <input type="text" class="form-control promo-code" required="" placeholder="Promo code">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
-                                            </div><!-- .End .input-group-append -->
+                                            <input type="text" class="form-control promo-code" required=""
+                                                   placeholder="Promo code">
+
+                                            <button class="btn btn-outline-primary-2" type="submit"><i
+                                                    class="icon-long-arrow-right"></i></button>
+                                        </div><!-- .End .input-group-append -->
+                                        <small class="feedback-promocode d-none alert-success"></small>
+                                        <div class="input-group-append">
                                         </div><!-- End .input-group -->
                                     </form>
 
-                                    <form action="#">
+                                    <form action="#" class="wallet-form">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" required="" placeholder="Use wallet">
+                                            <input type="text" class="form-control wallet-amount" required=""
+                                                   placeholder="Use wallet">
+                                            <input type="hidden" value="0" class="wallet-sub">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
+                                                <button class="btn btn-outline-primary-2 wallet-submit" type="submit"><i
+                                                        class="icon-long-arrow-right"></i></button>
                                             </div><!-- .End .input-group-append -->
                                         </div><!-- End .input-group -->
                                     </form>
                                 </div><!-- End .cart-discount -->
 
-{{--                                <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>--}}
+                                {{--                                <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>--}}
                             </div><!-- End .cart-bottom -->
                         </div><!-- End .col-lg-9 -->
+                        <input type="hidden" class="discount-value" value="0">
                         <aside class="col-lg-3">
                             <div class="summary summary-cart">
                                 <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
@@ -197,8 +217,15 @@
                                     <tbody>
                                     <tr class="summary-subtotal">
                                         <td>Subtotal:</td>
-                                        <td>$160.00</td>
+                                        <td class="subtotal">$160.00</td>
+
+
                                     </tr><!-- End .summary-subtotal -->
+                                    <tr class="summary-discount">
+                                        <td>Discount Applied:</td>
+                                        <td class="discount_amount">$0.00</td>
+
+                                    </tr>
                                     <tr class="summary-shipping">
                                         <td>Shipping:</td>
                                         <td>&nbsp;</td>
@@ -207,49 +234,53 @@
                                     <tr class="summary-shipping-row">
                                         <td>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="free-shipping">Free Shipping</label>
+                                                <input type="radio" id="free-shipping" name="shipping"
+                                                       class="custom-control-input">
+                                                <label class="custom-control-label" for="free-shipping">Free
+                                                    Shipping</label>
                                             </div><!-- End .custom-control -->
                                         </td>
                                         <td>$0.00</td>
                                     </tr><!-- End .summary-shipping-row -->
 
-{{--                                    <tr class="summary-shipping-row">--}}
-{{--                                        <td>--}}
-{{--                                            <div class="custom-control custom-radio">--}}
-{{--                                                <input type="radio" id="standard-shipping" name="shipping" class="custom-control-input">--}}
-{{--                                                <label class="custom-control-label" for="standard-shipping">Standard:</label>--}}
-{{--                                            </div><!-- End .custom-control -->--}}
-{{--                                        </td>--}}
-{{--                                        <td>$10.00</td>--}}
-{{--                                    </tr><!-- End .summary-shipping-row -->--}}
+                                    {{--                                    <tr class="summary-shipping-row">--}}
+                                    {{--                                        <td>--}}
+                                    {{--                                            <div class="custom-control custom-radio">--}}
+                                    {{--                                                <input type="radio" id="standard-shipping" name="shipping" class="custom-control-input">--}}
+                                    {{--                                                <label class="custom-control-label" for="standard-shipping">Standard:</label>--}}
+                                    {{--                                            </div><!-- End .custom-control -->--}}
+                                    {{--                                        </td>--}}
+                                    {{--                                        <td>$10.00</td>--}}
+                                    {{--                                    </tr><!-- End .summary-shipping-row -->--}}
 
-{{--                                    <tr class="summary-shipping-row">--}}
-{{--                                        <td>--}}
-{{--                                            <div class="custom-control custom-radio">--}}
-{{--                                                <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">--}}
-{{--                                                <label class="custom-control-label" for="express-shipping">Express:</label>--}}
-{{--                                            </div><!-- End .custom-control -->--}}
-{{--                                        </td>--}}
-{{--                                        <td>$20.00</td>--}}
-{{--                                    </tr><!-- End .summary-shipping-row -->--}}
+                                    {{--                                    <tr class="summary-shipping-row">--}}
+                                    {{--                                        <td>--}}
+                                    {{--                                            <div class="custom-control custom-radio">--}}
+                                    {{--                                                <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">--}}
+                                    {{--                                                <label class="custom-control-label" for="express-shipping">Express:</label>--}}
+                                    {{--                                            </div><!-- End .custom-control -->--}}
+                                    {{--                                        </td>--}}
+                                    {{--                                        <td>$20.00</td>--}}
+                                    {{--                                    </tr><!-- End .summary-shipping-row -->--}}
 
-{{--                                    <tr class="summary-shipping-estimate">--}}
-{{--                                        <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>--}}
-{{--                                        <td>&nbsp;</td>--}}
-{{--                                    </tr><!-- End .summary-shipping-estimate -->--}}
+                                    {{--                                    <tr class="summary-shipping-estimate">--}}
+                                    {{--                                        <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>--}}
+                                    {{--                                        <td>&nbsp;</td>--}}
+                                    {{--                                    </tr><!-- End .summary-shipping-estimate -->--}}
 
                                     <tr class="summary-total">
                                         <td>Total:</td>
-                                        <td>$160.00</td>
+                                        <td class="total">$160.00</td>
                                     </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
-                                <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
+                                <a href="javascript:void(0)" class="btn btn-outline-primary-2 btn-order btn-block checkout-btn">PROCEED TO
+                                    CHECKOUT</a>
                             </div><!-- End .summary -->
 
-                            <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+                            <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i
+                                    class="icon-refresh"></i></a>
                         </aside>
                         <!-- End .col-lg-3 -->
                     </div><!-- End .row -->
@@ -271,7 +302,8 @@
 
         <form action="#" method="get" class="mobile-search">
             <label for="mobile-search" class="sr-only">Search</label>
-            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required="">
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
+                   required="">
             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
         </form>
 
@@ -314,10 +346,12 @@
                         <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                         <li><a href="category.html">Shop Grid 3 Columns</a></li>
                         <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                        <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
+                        <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span
+                                        class="tip tip-hot">Hot</span></span></a></li>
                         <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                         <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
-                        <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
+                        <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
+                                        class="tip tip-new">New</span></span></a></li>
                         <li><a href="cart.html">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
                         <li><a href="wishlist.html">Wishlist</a></li>
@@ -329,7 +363,8 @@
                     <ul>
                         <li><a href="product.html">Default</a></li>
                         <li><a href="product-centered.html">Centered</a></li>
-                        <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
+                        <li><a href="product-extended.html"><span>Extended Info<span
+                                        class="tip tip-new">New</span></span></a></li>
                         <li><a href="product-gallery.html">Gallery</a></li>
                         <li><a href="product-sticky.html">Sticky Info</a></li>
                         <li><a href="product-sidebar.html">Boxed With Sidebar</a></li>
@@ -397,6 +432,7 @@
                             <a href="#">Single Post<span class="mmenu-btn"></span></a>
                             <ul>
                                 <li><a href="single.html">Default with sidebar</a></li>
+                                <li><a href="single.html">Default with sidebar</a></li>
                                 <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
                                 <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
                             </ul>
@@ -447,23 +483,28 @@
                     <div class="form-tab">
                         <ul class="nav nav-pills nav-fill" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab"
+                                   aria-controls="signin" aria-selected="true">Sign In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                                   aria-controls="register" aria-selected="false">Register</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="tab-content-5">
-                            <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                            <div class="tab-pane fade show active" id="signin" role="tabpanel"
+                                 aria-labelledby="signin-tab">
                                 <form action="#">
                                     <div class="form-group">
                                         <label for="singin-email">Username or email address *</label>
-                                        <input type="text" class="form-control" id="singin-email" name="singin-email" required="">
+                                        <input type="text" class="form-control" id="singin-email" name="singin-email"
+                                               required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="singin-password">Password *</label>
-                                        <input type="password" class="form-control" id="singin-password" name="singin-password" required="">
+                                        <input type="password" class="form-control" id="singin-password"
+                                               name="singin-password" required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-footer">
@@ -474,7 +515,8 @@
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="signin-remember">
-                                            <label class="custom-control-label" for="signin-remember">Remember Me</label>
+                                            <label class="custom-control-label" for="signin-remember">Remember
+                                                Me</label>
                                         </div><!-- End .custom-checkbox -->
 
                                         <a href="#" class="forgot-link">Forgot Your Password?</a>
@@ -502,12 +544,14 @@
                                 <form action="#">
                                     <div class="form-group">
                                         <label for="register-email">Your email address *</label>
-                                        <input type="email" class="form-control" id="register-email" name="register-email" required="">
+                                        <input type="email" class="form-control" id="register-email"
+                                               name="register-email" required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="register-password">Password *</label>
-                                        <input type="password" class="form-control" id="register-password" name="register-password" required="">
+                                        <input type="password" class="form-control" id="register-password"
+                                               name="register-password" required="">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-footer">
@@ -517,8 +561,10 @@
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="register-policy" required="">
-                                            <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                            <input type="checkbox" class="custom-control-input" id="register-policy"
+                                                   required="">
+                                            <label class="custom-control-label" for="register-policy">I agree to the <a
+                                                    href="#">privacy policy</a> *</label>
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-footer -->
                                 </form>
@@ -547,6 +593,10 @@
         </div><!-- End .modal-content -->
     </div><!-- End .modal-dialog -->
 </div><!-- End .modal -->
+<form method="post" id="total_price_form" enctype="multipart/form-data" action="{{route('confirm.order')}}">
+    @csrf
+    <input type="hidden" value="0" name="total_final_price" id="total_final_price">
+</form>
 
 <!-- Plugins JS File -->
 {{--<script>
@@ -564,8 +614,34 @@
     cart.addEventListener('change', handleChange);
 </script>--}}
 <script>
+    const formSubmit = document.querySelector('#total_price_form');
+    const submitBtn = document.querySelector('.checkout-btn');
+    submitBtn.addEventListener('click',function(){
+        formSubmit.submit();
+    })
+    const findTotal = function(param){
+        const eachTotals = document.querySelectorAll('.each-price');
+        const subtotal = document.querySelector('.summary-subtotal .subtotal');
+        const total = document.querySelector('.summary-total .total');
+        const walletSub = document.querySelector('.wallet-sub');
+        const totalFinalPrice = document.querySelector('#total_final_price');
+        const discountValue = document.querySelector('.discount-value');
+        let acc = 0;
+        eachTotals.forEach((curr)=>{
+            acc+=parseInt(curr.value);
+        });
+        acc-= parseInt(walletSub.value);
+        acc-= Number(discountValue.value);
+        if(param)
+            subtotal.innerHTML = `$${acc.toFixed(2)}`;
+        total.innerHTML = `$${acc.toFixed(2)}`;
+        totalFinalPrice.value = acc;
+        return acc;
+    }
+    findTotal(1);
+    let used_promocode = [];
     const promocode_form = document.querySelector('#promocode_form');
-    const handleSubmit = async function(e) {
+    const usePromoCode = async function (e) {
         e.preventDefault();
         const promocode = promocode_form.querySelector('.promo-code').value;
         const data = {
@@ -583,19 +659,94 @@
         try {
             const response = await fetch(uri, options);
             const promocode = await response.json();
-            if(promocode.success){
-                alert('added to cart');
+            const feedback = document.querySelector('.feedback-promocode');
+            const discountShow = document.querySelector('.summary-discount .discount_amount');
+            const discountValue = document.querySelector('.discount-value');
+            if (promocode.success) {
+                if(promocode.result.length) {
+                    const currTotal = findTotal(0);
+                    if (!used_promocode.includes(promocode.result[0].discount_code)) {
+                        used_promocode.push(promocode.result[0].discount_code);
+                        for (const product of promocode.result) {
+                            const discount = product.discount_amount;
+                            if(discount < currTotal) {
+                                console.log(parseInt(discountValue.value), discount);
+                                discountValue.value = parseInt(discountValue.value) + Number(discount);
+                                discountShow.innerHTML = `$${discount}.00`;
+                                feedback.innerText = 'Promocode applied';
+                                feedback.classList.remove('d-none');
+                                feedback.classList.add('alert-success');
+                            }
+                            else{
+                                feedback.innerText = `Purchase items of at least $${discount.toFixed(2)}`;
+                                feedback.classList.remove('d-none');
+                                feedback.classList.add('alert-danger');
+                            }
+                        }
+                    } else {
+
+                        feedback.innerText = 'Promocode already applied';
+                        feedback.classList.remove('d-none');
+                        feedback.classList.remove('alert-success');
+                        feedback.classList.add('alert-danger');
+                    }
+                }
+                else{
+                    feedback.innerText = 'Promocode does not exist';
+                    feedback.classList.remove('d-none');
+                    feedback.classList.remove('alert-success');
+                    feedback.classList.add('alert-danger');
+
+                }
+                findTotal(0);
+
             }
             if (promocode.fail) {
-                alert('failed to add to cart');
+                alert('failed to apply discount');
             }
-        }
-        catch(err) {
-            alert('failed to add to cart');
+        } catch (err) {
+            console.log(err);
+            alert('failed to apply discount');
         }
 
     }
-    promocode_form.addEventListener('submit', handleSubmit);
+    promocode_form.addEventListener('submit', usePromoCode);
+</script>
+
+<script>
+    const walletForm = document.querySelector('.wallet-form');
+    const useWallet = async function(e){
+        e.preventDefault();
+        const walletAmount = document.querySelector('.wallet-amount').value;
+        const data = {
+            walletAmount
+        };
+        const uri = `/cart-wallet`;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'X-CSRF-Token': '{{csrf_token()}}'
+            },
+            body: JSON.stringify(data),
+        };
+        try {
+            const response = await fetch(uri, options);
+            const wallet = await response.json();
+            const walletSub = document.querySelector('.wallet-sub');
+            if(wallet.success){
+                walletSub.value = parseInt(walletSub.value) + parseInt(walletAmount);
+            }
+            else if(wallet.fail){
+                alert('Failed to use wallet');
+            }
+        } catch(err){
+            console.log(err);
+            alert('Failed to use wallet (ERROR)');
+        }
+        findTotal(0);
+    }
+    walletForm.addEventListener('submit', useWallet);
 </script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -608,7 +759,7 @@
 <script src="assets/js/main.js"></script>
 
 
-
 <!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
 
-</body></html>
+</body>
+</html>
