@@ -121,7 +121,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="{{URL::asset('assets/images/'.$r['product_image'])}}"
+                                                        <img src="{{$r['product_image']}}"
                                                              width="100px" alt="Product image">
                                                     </a>
                                                 </figure>

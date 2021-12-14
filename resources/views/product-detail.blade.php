@@ -131,7 +131,7 @@
                                     <figure class="product-main-image">
                                         {{--                                        <img id="product-zoom" src="assets/images/products/single/1.jpg"--}}
                                         <img id="product-zoom"
-                                             src="{{asset('assets/images/'.$product['product_image'])}}"
+                                             src="{{$product['product_image']}}"
 
                                              data-zoom-image="assets/images/products/single/1-big.jpg"
 
@@ -524,7 +524,7 @@
             <div class="col-6">
                 <figure class="product-media">
                     <a href="product.html">
-                        <img src="{{asset('assets/images/'.$product['product_image'])}}" alt="Product image">
+                        <img src="{{$product['product_image']}}" alt="Product image">
                     </a>
                 </figure><!-- End .product-media -->
                 <h4 class="product-title"><a href="product.html">{{$product['product_name']}}</a></h4>

@@ -103,7 +103,7 @@
 
                                             <figure class="product-image-container">
                                                 <a href="/product-detail" class="product-image">
-                                                    <img src="{{asset('assets/images/'.$c['product_image'])}}"
+                                                    <img src="{{$c['product_image']}}"
                                                          alt="product">
                                                 </a>
                                             </figure>
@@ -329,7 +329,7 @@
                                                                     <figure class="product-media">
                                                                         <a href="{{route('shop.product.detail', $product['product_id'])}}">
                                                                             <img
-                                                                                src="{{asset('assets/images/'.$product['product_image'])}}"
+                                                                                src="{{$product['product_image']}}"
                                                                                 alt="Product image"
                                                                                 class="product-image">
                                                                             <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
