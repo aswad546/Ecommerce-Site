@@ -10,16 +10,15 @@ class connection
     public static function connect_db()
     {
         $DATABASE_URL=parse_url('DATABASE_URL');
-        dd($DATABASE_URL);
-        $host = $DATABASE_URL['host'];
-        $port = $DATABASE_URL['post'];
-        $dsn = "pgsql:host=$host;port=$port;dbname=";
+        $host = $DATABASE_URL['host'] ?? null;
+        $port = $DATABASE_URL['port'] ?? null;
+        $dsn = "pgsql:host=$host;port=$port;dbname=d754dl5hoij408;";
         $servername = "localhost";
-        $username = "root";
-        $password = "";
+        $username = $DATABASE_URL['user'] ?? null;
+        $password = $DATABASE_URL['pass'] ?? null;
         $conn = "";
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=db_proj", $username, $password);
+            $conn = new PDO($dsn, $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
