@@ -9,12 +9,12 @@ class connection
 {
     public static function connect_db()
     {
-        $servername = "uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-        $username = "owlven9xmx9t7wvp";
-        $password = "r16gjn8r5uv2lv1g";
+        $servername = "us-cdbr-east-05.cleardb.net";
+        $username = "bb0fad59d46b9e";
+        $password = "2d46828f";
         $conn = "";
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=hmfaszhqlbfu944j", $username, $password);
+            $conn = new PDO("mysql:host=$servername;dbname=heroku_3f8a44b4aa65577", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
