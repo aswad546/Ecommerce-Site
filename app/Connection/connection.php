@@ -4,20 +4,17 @@ namespace App\Connection;
 
 use PDO;
 use PDOException;
-
+$DATABASE_URL=parse_url('DATABASE_URL');
 class connection
 {
     public static function connect_db()
     {
-        $DATABASE_URL=parse_url('DATABASE_URL');
-        $host = "ec2-34-233-192-238.compute-1.amazonaws.com";
-        $db = "d754dl5hoij408";
-        $dsn = "pgsql:host=$host;port=5432;dbname=$db;";
-        $username = 'wgszyqmhcmblyq';
-        $password = '699e50532a1fc6b3dfe7fc0a5f59ff29acc3173c6de7697da9d522892251e56a';
+        $servername = "uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+        $username = "owlven9xmx9t7wvp";
+        $password = "r16gjn8r5uv2lv1g";
         $conn = "";
         try {
-            $conn = new PDO($dsn, $username, $password);
+            $conn = new PDO("mysql:host=$servername;dbname=hmfaszhqlbfu944j", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
