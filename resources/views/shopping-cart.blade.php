@@ -121,7 +121,7 @@
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="#">
-                                                        <img src="{{$r['product_image']}}"
+                                                        <img src="{{Storage::disk('s3')->url('images/'.$r['product_image'])}}"
                                                              width="100px" alt="Product image">
                                                     </a>
                                                 </figure>

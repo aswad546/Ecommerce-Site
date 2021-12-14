@@ -87,13 +87,15 @@ class VendorController extends Controller
 //            $destinationPath = public_path('\assets\images');
 
 //            $request->file('product_image')->move($destinationPath, $name);
-            $path = Storage::disk('s3')->put('images', $request->product_image);
-            $path = Storage::disk('s3')->url($path);
+            $file = $request->product_image;
+            $file->storeAs('images', $name, 's3');
+//            Storage::disk('s3')->setVisibility($path, 'public');
+//            $path = Storage::disk('s3')->url($path);
 
             $featured = $request->featured;
 
             $sql = "INSERT INTO products
-                    VALUES (DEFAULT, '$request->product_name', '$path', '$request->quantity', '$request->price', '$request->category', '$featured', '$request->description',  $id, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', '$request->category', '$featured', '$request->description',  $id, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $conn = null;
         }
@@ -160,14 +162,16 @@ class VendorController extends Controller
             $name1 = "";
             $path = "";
             if ($request->file('product_image')) {
-                /*$name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
-                $destinationPath = public_path('\assets\images');
+                $name1 = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
+                /*$destinationPath = public_path('\assets\images');
                 $request->file('product_image')->move($destinationPath, $name1);*/
-                $path = Storage::disk('s3')->put('images', $request->product_image);
-                $path = Storage::disk('s3')->url($path);
+                $file = $request->product_image;
+                $file->storeAs('images/', $name1, 's3');
+               /* $path = Storage::disk('s3')->put('images', $request->product_image);
+                $path = Storage::disk('s3')->url($path);*/
             }
             $product_name = $request->product_name ? "product_name = '$request->product_name'" . ($request->file('product_image') || $request->category || $request->price || $request->description || $request->quantity ? "," : "") : "";
-            $product_image = $request->file('product_image') ? "product_image = '$path'" . ($request->price || $request->category || $request->description || $request->quantity ? "," : "") : "";
+            $product_image = $request->file('product_image') ? "product_image = '$name1'" . ($request->price || $request->category || $request->description || $request->quantity ? "," : "") : "";
             $product_price = $request->price ? "price = '$request->price'" . ($request->quantity || $request->description || $request->category ? "," : "") : "";
             $product_quantity = $request->quantity ? "quantity = '$request->quantity'" . ($request->category || $request->description ? "," : "") : "";
             $product_category = $request->category ? "category = '$request->category'" . ($request->description ? "," : "") : "";

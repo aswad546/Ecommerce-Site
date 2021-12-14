@@ -524,7 +524,7 @@
             <div class="col-6">
                 <figure class="product-media">
                     <a href="product.html">
-                        <img src="{{$product['product_image']}}" alt="Product image">
+                        <img src="{{Storage::disk('s3')->url('images/'.$product['product_image'])}}" alt="Product image">
                     </a>
                 </figure><!-- End .product-media -->
                 <h4 class="product-title"><a href="product.html">{{$product['product_name']}}</a></h4>

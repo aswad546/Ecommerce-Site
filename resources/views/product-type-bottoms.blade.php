@@ -5,7 +5,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="/product-detail">
-                                                    <img src="{{$product['product_image'])}}"
+                                                    <img src="{{Storage::disk('s3')->url('images/'.$product['product_image'])}}"
                                                          alt="Product image" class="product-image">
                                                     <!-- <img src="assets/images/demos/demo-9/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
                                                 </a>

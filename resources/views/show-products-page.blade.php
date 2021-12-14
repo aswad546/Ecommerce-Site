@@ -554,7 +554,8 @@
                                 <td>{{$r['product_id']}}</td>
                                 <td>{{$r['product_name']}}</td>
                                 <td>
-                                    <img src="{{$r['product_image']}}" width="100px"/>
+
+                                    <img src="{{Storage::disk('s3')->url('images/'.$r['product_image'])}}" width="100px"/>
                                 </td>
                                 <td>${{number_format((float)$r['price'], 2, '.', '')}}</td>
                                 <td>{{$r['quantity']}}</td>
