@@ -54,18 +54,18 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/edit-profile"><span
+                                    <a href="{{route('edit.profile')}}"><span
                                             class="cart-txt">Edit Profile</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/vendor-products"><span
+                                    <a href="{{route('show.products')}}"><span
                                             class="cart-txt">My Products</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
                                     <a href="#"><span class="cart-txt">Settings</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/logout"><span class="cart-txt">Logout</span></a>
+                                    <a href="{{route('logout')}}"><span class="cart-txt">Logout</span></a>
                                 </div><!-- End .product -->
                             </div><!-- End .cart-product -->
 

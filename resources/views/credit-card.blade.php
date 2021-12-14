@@ -8,9 +8,9 @@
     <meta name="author" content="p-themes">
     <meta name="theme-color" content="#ffffff">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <style>
         .circle {
             width:500px;
@@ -77,19 +77,19 @@
 <!-- Mobile Menu -->
 
 <!-- Plugins JS File -->
-<script src="http://127.0.0.1:8000/assets/js/jquery.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/bootstrap.bundle.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/jquery.hoverIntent.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/jquery.waypoints.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/superfish.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/owl.carousel.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/bootstrap-input-spinner.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/jquery.plugin.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/jquery.countdown.min.js"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/js/superfish.min.js')}}"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-input-spinner.js')}}"></script>
+<script src="{{asset('assets/js/jquery.plugin.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 <!-- Main JS File -->
-<script src="http://127.0.0.1:8000/assets/js/main.js"></script>
-<script src="http://127.0.0.1:8000/assets/js/demos/demo-9.js"></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('assets/js/demos/demo-9.js')}}"></script>
 
 
 <!-- molla/elements-icon-boxes.html  22 Nov 2019 10:05:34 GMT -->

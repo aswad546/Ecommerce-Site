@@ -68,7 +68,7 @@
 
                                     <figure class="product-image-container">
                                         <a href="product.html" class="product-image">
-                                            <img src="http://127.0.0.1:8000/assets/images/products/cart/product-1.jpg" alt="product">
+                                            <img src="{{asset('assets/images/products/cart/product-1.jpg')}}" alt="product">
                                         </a>
                                     </figure>
                                     <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
@@ -88,7 +88,7 @@
 
                                     <figure class="product-image-container">
                                         <a href="product.html" class="product-image">
-                                            <img src="http://127.0.0.1:8000/assets/images/products/cart/product-2.jpg" alt="product">
+                                            <img src="{{asset('assets/images/products/cart/product-2.jpg')}}" alt="product">
                                         </a>
                                     </figure>
                                     <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
@@ -117,19 +117,19 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/edit-profile"><span class="cart-txt">Edit Profile</span></a>
+                                    <a href="{{route('edit.profile')}}"><span class="cart-txt">Edit Profile</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/vendor-products"><span class="cart-txt">My Products</span></a>
+                                    <a href="{{route('show.products')}}"><span class="cart-txt">My Products</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/vendor-products/discounts"><span class="cart-txt">Discounts</span></a>
+                                    <a href="{{route('show.discount')}}"><span class="cart-txt">Discounts</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
                                     <a href="#"><span class="cart-txt">Settings</span></a>
                                 </div><!-- End .product -->
                                 <div class="product">
-                                    <a href="http://127.0.0.1:8000/logout"><span class="cart-txt">Logout</span></a>
+                                    <a href="{{route('logout')}}"><span class="cart-txt">Logout</span></a>
                                 </div><!-- End .product -->
                             </div><!-- End .cart-product -->
 

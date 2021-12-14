@@ -26,7 +26,7 @@
     </style>
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="theme-color" content="#ffffff">
-    <link rel="mask-icon" href="http://127.0.0.1:8000/assets/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
 
 </head>
 
@@ -616,7 +616,7 @@
         </div>
     </div>
 </div>
-<script <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
