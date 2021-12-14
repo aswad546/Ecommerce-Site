@@ -9,6 +9,11 @@ class connection
 {
     public static function connect_db()
     {
+        $DATABASE_URL=parse_url('DATABASE_URL');
+        dd($DATABASE_URL);
+        $host = $DATABASE_URL['host'];
+        $port = $DATABASE_URL['post'];
+        $dsn = "pgsql:host=$host;port=$port;dbname=";
         $servername = "localhost";
         $username = "root";
         $password = "";
