@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Connection\connection;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use PDO;
@@ -13,6 +14,10 @@ class AdminController extends Controller
     public function adminDash()
     {
         return view('vendor-dashboard');
+    }
+
+    public function showVendorForm(){
+        return view('add-vendor');
     }
 
     public function venList()
@@ -55,21 +60,21 @@ class AdminController extends Controller
         return view('users-list', compact("users"));
     }
 
-    public function addVendorSave(Request $request)
+    public function addVendorSave(Request $request): RedirectResponse
     {
         $conn = connection::connect_db();
         if ($conn) {
             $hashed_pass = Hash::make($request->password);
             $vendor = 'vendor';
             $sql = "INSERT INTO users
-                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', 'vendor', DEFAULT, '$hashed_pass', DEFAULT, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', 'vendor', DEFAULT, '$hashed_pass', '$request->security_question', '$request->security_answer', 'unblock', DEFAULT, DEFAULT, DEFAULT);";
             $conn->exec($sql);
         }
         return redirect()->to(route('ven.list'));
     }
 
 
-    public function addVendorBlock(Request $request): JsonResponse
+    public function addBlock(Request $request): JsonResponse
     {
         $conn = connection::connect_db();
 //        dd($request->all());
@@ -78,7 +83,7 @@ class AdminController extends Controller
         if ($conn) {
             $sql1 = "SELECT block
                     FROM users
-                    WHERE id = $id ";
+                    WHERE id = $id";
 //            $conn->exec($sql1);
 
             $query = $conn->prepare($sql1);
@@ -91,7 +96,7 @@ class AdminController extends Controller
 
             $sql = "UPDATE users
                     SET block = '$block'
-                    WHERE id = $id ";
+                    WHERE id = $id";
             $conn->exec($sql);
             $conn = null;
         }

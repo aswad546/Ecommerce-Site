@@ -170,6 +170,10 @@
                                         <input type="text" name="price" placeholder="Product Price" class="form-control" value="{{$res['price']}}">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="featured">Featured</label>
+                                        <input type="checkbox" id="featured" name="featured" value="featured" {{$res['featured'] == 'featured' ? 'checked' : ''}}>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="password" class="form-label">Quantity</label>
                                         <input type="text" name="quantity" placeholder="Quantity" class="form-control" value="{{$res['quantity']}}">
                                     </div>

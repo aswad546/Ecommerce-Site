@@ -401,7 +401,6 @@
                     e.target.classList.remove(res.success === 'btn-outline-success' ? 'btn-outline-danger' : 'btn-outline-success');
                     e.target.classList.add(res.success);
                     e.target.querySelector('span').innerText = res.block === 'block' ? 'Unblock' : 'Block';
-                    alert('added block');
                 }
                 if (res.fail) {
                     alert('failed to add block');

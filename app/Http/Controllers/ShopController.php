@@ -32,6 +32,7 @@ class ShopController extends Controller
 
     public function searchProducts(Request $request){
         $res = $this->getUser();
+        $cart = $this->getCart();
         $conn = connection::connect_db();
         $search = $request->search;
         $products = "";
@@ -44,7 +45,7 @@ class ShopController extends Controller
             $products = $query->fetchAll();
             $conn = null;
         }
-        return view('search-result', compact('res', 'products'));
+        return view('search-result', compact('res', 'products', 'cart'));
     }
 
     /**
@@ -103,7 +104,8 @@ class ShopController extends Controller
         return $user;
     }
 
-    public function showProductDetail($id){
+    public function showProductDetail($product_id){
+//        dd($product_id);
         $res = $this->getUser();
         $conn = connection::connect_db();
         $product = "";
@@ -113,7 +115,7 @@ class ShopController extends Controller
             $sql = "SELECT *
                     FROM products p
                     JOIN users u on u.id = p.user_id
-                    WHERE p.product_id = $id";
+                    WHERE p.product_id = $product_id";
             $query = $conn->prepare($sql);
             $query->execute();
             $result = $query->setFetchMode(PDO::FETCH_ASSOC);
@@ -122,7 +124,7 @@ class ShopController extends Controller
             $sql = "SELECT *
                     FROM feedback f
                     JOIN users u on u.id = f.user_id
-                    WHERE f.product_id = $id";
+                    WHERE f.product_id = $product_id";
             $query = $conn->prepare($sql);
             $query->execute();
             $result = $query->setFetchMode(PDO::FETCH_ASSOC);

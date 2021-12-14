@@ -162,6 +162,10 @@
                                                     class="cart-txt">My Products</span></a>
                                         </div><!-- End .product -->
                                         <div class="product">
+                                            <a href="{{route('show.vendor.transactions')}}"><span
+                                                    class="cart-txt">Transaction History</span></a>
+                                        </div><!-- End .product -->
+                                        <div class="product">
                                             <a href="{{route('show.discount')}}"><span
                                                     class="cart-txt">Discounts</span></a>
                                         </div><!-- End .product -->
@@ -177,6 +181,9 @@
                                     @if($res['user_roles'] == "premiumuser")
                                         <div class="product">
                                             <a href="#"><span class="cart-txt"><i class="fa-chess-king"></i>Premium Account</span></a>
+                                        </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.wallet')}}"><span class="cart-txt">Wallet</span></a>
                                         </div><!-- End .product -->
                                     @endif
                                     <div class="product">

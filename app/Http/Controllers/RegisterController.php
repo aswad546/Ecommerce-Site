@@ -16,7 +16,7 @@ class RegisterController extends Controller
         if ($conn) {
             $hashed_pass = Hash::make($request->password);
             $sql = "INSERT INTO users
-                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', '$request->user_type', DEFAULT, '$hashed_pass', 'unblock', DEFAULT, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->name', '$request->email', '$request->address', '$request->user_type', DEFAULT, '$hashed_pass', '$request->security_question', '$request->security_answer', 'unblock', DEFAULT, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $user_id = $conn->lastInsertId();
             Session::put('user_id', $user_id);
@@ -27,6 +27,10 @@ class RegisterController extends Controller
 
 
         $conn = null;
-        return redirect('/');
+        $next = '/';
+        if($request->user_type == 'admin')
+            $next = '/admin-dashboard';
+
+        return redirect($next);
     }
 }

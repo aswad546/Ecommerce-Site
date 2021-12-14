@@ -678,8 +678,9 @@
                                 feedback.classList.add('alert-success');
                             }
                             else{
-                                feedback.innerText = `Purchase items of at least $${discount.toFixed(2)}`;
+                                feedback.innerText = `Purchase items of at least $${Number(discount).toFixed(2)}`;
                                 feedback.classList.remove('d-none');
+                                feedback.classList.remove('alert-success');
                                 feedback.classList.add('alert-danger');
                             }
                         }

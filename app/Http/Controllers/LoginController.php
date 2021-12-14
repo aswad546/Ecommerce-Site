@@ -28,7 +28,10 @@ class LoginController extends Controller
                 Session::put('user_id', $res[0]['id']);
             }
             $conn = null;
-            return redirect('/');
+            $next = '/';
+            if($res && $res[0]['user_roles'] == 'admin')
+                $next = '/admin-dashboard';
+            return redirect($next);
         }
     }
     public function logout(){

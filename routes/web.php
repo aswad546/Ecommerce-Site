@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\FeedbackController;
@@ -58,11 +59,9 @@ Route::get('/vendor-list', [AdminController::class, 'venList'])->name('ven.list'
 Route::get('/users-list', [AdminController::class, 'useList'])->name('use.list');
 #Route::get('/add-vendor', [VendorController::class, 'addVendor'])->name('add.vendor');
 
-Route::get('/add-vendor',function(){
-    return view('add-vendor');
-});
+Route::get('/add-vendor',[AdminController::class, 'showVendorForm'])->name('add.vendor');
 Route::post('/add-vendor/save', [AdminController::class, 'addVendorSave'])->name('add.vendor.save');
-Route::post('/add-block', [AdminController::class, 'addVendorBlock'])->name('add.vendor.block');
+Route::post('/add-block', [AdminController::class, 'addBlock'])->name('add.vendor.block');
 
 Route::get('/view-wallet',[WalletController::class, 'showWallet'])->name('show.wallet');
 
@@ -74,6 +73,7 @@ Route::post('/vendor-products/discounts-add/save', [VendorController::class, 'sa
 Route::get('/vendor-products/discounts-add',function(){
     return view('add-discount');
 });
+
 
 
 
@@ -91,5 +91,19 @@ Route::post('/cart-promo-code', [CartController::class, 'applyPromocode'])->name
 Route::get('/cart/checkout', [CartController::class, 'checkoutPage'])->name('checkout.page');
 Route::post('/cart/checkout/order-confirm', [CartController::class, 'confirmOrder'])->name('confirm.order');
 
-
+Route::get('/transaction-history/view', [TransactionController::class, 'showTransactions'])->name('show.transaction.history');
+Route::get('/transaction-history/view/{id}/show-items', [TransactionController::class, 'showTransactionItems'])->name('show.transaction.items');
 Route::get('/transaction-history/export', [VendorController::class, 'exportAllTransactions'])->name('transaction.history.export');
+
+Route::get('/transaction-history/vendor/view', [TransactionController::class, 'showVendorTransactions'])->name('show.vendor.transactions');
+
+Route::get('/orders/view', [UserController::class, 'showOrders'])->name('show.orders');
+Route::get('/orders/view/{id}/products', [UserController::class, 'showOrderProducts'])->name('show.orders.products');
+Route::get('/orders/view/{id}/cancel', [UserController::class, 'cancelOrder'])->name('cancel.order');
+
+
+Route::get('/forgot-password/email-form', [UserController::class, 'showEmailForm'])->name('forgot.password.email.form.show');
+Route::post('/forgot-password/security-question',[UserController::class, 'showSecurityQuestionForm'])->name('forgot.password.security.question.show');
+Route::post('/forgot-password/security-answer-check/{id}', [UserController::class, 'checkSecurityAnswer'])->name('forgot.password.check.security.answer');
+Route::get('/forgot-password/re-enter-password/{id}', [UserController::class, 'reenterPassword'])->name('forgot.password.reenter');
+Route::post('/forgot-password/update-password/{id}', [UserController::class, 'updatePassword'])->name('forgot.password.update');

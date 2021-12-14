@@ -9,8 +9,8 @@
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
     <!-- Favicon -->
-{{--    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">--}}
-{{--    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">--}}
+    {{--    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">--}}
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/icons/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
@@ -107,17 +107,17 @@
                     <li class="breadcrumb-item active" aria-current="page">Default</li>
                 </ol>
 
-{{--                <nav class="product-pager ml-auto" aria-label="Product">--}}
-{{--                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">--}}
-{{--                        <i class="icon-angle-left"></i>--}}
-{{--                        <span>Prev</span>--}}
-{{--                    </a>--}}
+                {{--                <nav class="product-pager ml-auto" aria-label="Product">--}}
+                {{--                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">--}}
+                {{--                        <i class="icon-angle-left"></i>--}}
+                {{--                        <span>Prev</span>--}}
+                {{--                    </a>--}}
 
-{{--                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">--}}
-{{--                        <span>Next</span>--}}
-{{--                        <i class="icon-angle-right"></i>--}}
-{{--                    </a>--}}
-{{--                </nav><!-- End .pager-nav -->--}}
+                {{--                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">--}}
+                {{--                        <span>Next</span>--}}
+                {{--                        <i class="icon-angle-right"></i>--}}
+                {{--                    </a>--}}
+                {{--                </nav><!-- End .pager-nav -->--}}
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
 
@@ -129,8 +129,9 @@
                             <div class="product-gallery product-gallery-vertical">
                                 <div class="row">
                                     <figure class="product-main-image">
-{{--                                        <img id="product-zoom" src="assets/images/products/single/1.jpg"--}}
-                                        <img id="product-zoom" src="{{asset('assets/images/'.$product['product_image'])}}"
+                                        {{--                                        <img id="product-zoom" src="assets/images/products/single/1.jpg"--}}
+                                        <img id="product-zoom"
+                                             src="{{asset('assets/images/'.$product['product_image'])}}"
 
                                              data-zoom-image="assets/images/products/single/1-big.jpg"
 
@@ -141,33 +142,33 @@
                                         </a>
                                     </figure><!-- End .product-main-image -->
 
-{{--                                    <div id="product-zoom-gallery" class="product-image-gallery">--}}
-{{--                                        <a class="product-gallery-item active" href="#"--}}
-{{--                                           data-image="assets/images/products/single/1.jpg"--}}
-{{--                                           data-zoom-image="assets/images/products/single/1-big.jpg">--}}
-{{--                                            <img src="assets/images/products/single/1-small.jpg" alt="product side">--}}
-{{--                                        </a>--}}
+                                {{--                                    <div id="product-zoom-gallery" class="product-image-gallery">--}}
+                                {{--                                        <a class="product-gallery-item active" href="#"--}}
+                                {{--                                           data-image="assets/images/products/single/1.jpg"--}}
+                                {{--                                           data-zoom-image="assets/images/products/single/1-big.jpg">--}}
+                                {{--                                            <img src="assets/images/products/single/1-small.jpg" alt="product side">--}}
+                                {{--                                        </a>--}}
 
-{{--                                        <a class="product-gallery-item" href="#"--}}
-{{--                                           data-image="assets/images/products/single/2.jpg"--}}
-{{--                                           data-zoom-image="assets/images/products/single/2-big.jpg">--}}
-{{--                                            <img src="assets/images/products/single/2-small.jpg" alt="product cross">--}}
-{{--                                        </a>--}}
+                                {{--                                        <a class="product-gallery-item" href="#"--}}
+                                {{--                                           data-image="assets/images/products/single/2.jpg"--}}
+                                {{--                                           data-zoom-image="assets/images/products/single/2-big.jpg">--}}
+                                {{--                                            <img src="assets/images/products/single/2-small.jpg" alt="product cross">--}}
+                                {{--                                        </a>--}}
 
-{{--                                        <a class="product-gallery-item" href="#"--}}
-{{--                                           data-image="assets/images/products/single/3.jpg"--}}
-{{--                                           data-zoom-image="assets/images/products/single/3-big.jpg">--}}
-{{--                                            <img src="assets/images/products/single/3-small.jpg"--}}
-{{--                                                 alt="product with model">--}}
-{{--                                        </a>--}}
+                                {{--                                        <a class="product-gallery-item" href="#"--}}
+                                {{--                                           data-image="assets/images/products/single/3.jpg"--}}
+                                {{--                                           data-zoom-image="assets/images/products/single/3-big.jpg">--}}
+                                {{--                                            <img src="assets/images/products/single/3-small.jpg"--}}
+                                {{--                                                 alt="product with model">--}}
+                                {{--                                        </a>--}}
 
-{{--                                        <a class="product-gallery-item" href="#"--}}
-{{--                                           data-image="assets/images/products/single/4.jpg"--}}
-{{--                                           data-zoom-image="assets/images/products/single/4-big.jpg">--}}
-{{--                                            <img src="assets/images/products/single/4-small.jpg" alt="product back">--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-                                    <!-- End .product-image-gallery -->
+                                {{--                                        <a class="product-gallery-item" href="#"--}}
+                                {{--                                           data-image="assets/images/products/single/4.jpg"--}}
+                                {{--                                           data-zoom-image="assets/images/products/single/4-big.jpg">--}}
+                                {{--                                            <img src="assets/images/products/single/4-small.jpg" alt="product back">--}}
+                                {{--                                        </a>--}}
+                                {{--                                    </div>--}}
+                                <!-- End .product-image-gallery -->
                                 </div><!-- End .row -->
                             </div><!-- End .product-gallery -->
                         </div><!-- End .col-md-6 -->
@@ -177,15 +178,18 @@
                             <div class="product-details">
 
                                 <h1 class="product-title">{{$product['product_name']}}</h1>
-                                <!-- End .product-title -->
+                                @if($product['featured'] == 'featured')
+                                    <p>Featured product</p>
+                                @endif
+                            <!-- End .product-title -->
 
-{{--                                <div class="ratings-container">--}}
-{{--                                    <div class="ratings">--}}
-{{--                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->--}}
-{{--                                    </div><!-- End .ratings -->--}}
-{{--                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews--}}
-{{--                                        )</a>--}}
-{{--                                </div><!-- End .rating-container -->--}}
+                                {{--                                <div class="ratings-container">--}}
+                                {{--                                    <div class="ratings">--}}
+                                {{--                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->--}}
+                                {{--                                    </div><!-- End .ratings -->--}}
+                                {{--                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews--}}
+                                {{--                                        )</a>--}}
+                                {{--                                </div><!-- End .rating-container -->--}}
 
                                 <div class="product-price">
                                     ${{number_format((float)$product['price'], 2, '.', '')}}
@@ -195,19 +199,19 @@
                                     <p>{{$product['product_description']}} </p>
                                 </div><!-- End .product-content -->
 
-{{--                                <div class="details-filter-row details-row-size">--}}
-{{--                                    <label>Color:</label>--}}
+                                {{--                                <div class="details-filter-row details-row-size">--}}
+                                {{--                                    <label>Color:</label>--}}
 
-{{--                                    <div class="product-nav product-nav-thumbs">--}}
-{{--                                        <a href="#" class="active">--}}
-{{--                                            <img src="assets/images/products/single/1-thumb.jpg" alt="product desc">--}}
-{{--                                        </a>--}}
-{{--                                        <a href="#">--}}
-{{--                                            <img src="assets/images/products/single/2-thumb.jpg" alt="product desc">--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <!-- End .product-nav -->--}}
-{{--                                </div><!-- End .details-filter-row -->--}}
+                                {{--                                    <div class="product-nav product-nav-thumbs">--}}
+                                {{--                                        <a href="#" class="active">--}}
+                                {{--                                            <img src="assets/images/products/single/1-thumb.jpg" alt="product desc">--}}
+                                {{--                                        </a>--}}
+                                {{--                                        <a href="#">--}}
+                                {{--                                            <img src="assets/images/products/single/2-thumb.jpg" alt="product desc">--}}
+                                {{--                                        </a>--}}
+                                {{--                                    </div>--}}
+                                {{--                                    <!-- End .product-nav -->--}}
+                                {{--                                </div><!-- End .details-filter-row -->--}}
 
                                 {{--<div class="details-filter-row details-row-size">
                                     <label for="size">Size:</label>
@@ -223,70 +227,77 @@
 
                                     <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
                                 </div><!-- End .details-filter-row -->--}}
-                                <form accept-charset="utf-8" method="post" action="{{route('add.cart.save', $product['product_id'])}}" enctype="multipart/form-data">
+                                {{--                                @dd($product)--}}
+                                <form accept-charset="utf-8" method="post"
+                                      action="{{route('add.cart.save', $product['product_id'])}}"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="details-filter-row details-row-size">
-                                    <label for="qty">Qty:</label>
-                                    <div class="product-details-quantity">
-                                        <div class="input-group  input-spinner">
-                                            <div class="input-group-prepend">
-                                                <button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button">
-                                                    <i class="icon-minus"></i></button>
+                                        <label for="qty">Qty:</label>
+                                        <div class="product-details-quantity">
+                                            <div class="input-group  input-spinner">
+                                                <div class="input-group-prepend">
+                                                    <button style="min-width: 26px"
+                                                            class="btn btn-decrement btn-spinner" type="button">
+                                                        <i class="icon-minus"></i></button>
+                                                </div>
+                                                <input name="quantity" type="text" style="text-align: center"
+                                                       class="form-control " required="" placeholder="" value="1">
+                                                <div class="input-group-append">
+                                                    <button style="min-width: 26px"
+                                                            class="btn btn-increment btn-spinner" type="button">
+                                                        <i class="icon-plus"></i>
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <input name="quantity" type="text" style="text-align: center" class="form-control " required="" placeholder="" value="1">
-                                            <div class="input-group-append"><button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button">
-                                                    <i class="icon-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-{{--                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10"--}}
-{{--                                               step="1" data-decimals="0" required="" style="">--}}
-                                      {{--<div class="input-group  input-spinner">
-                                            <div class="input-group-prepend">
-                                                <button style="min-width: 26px" class="btn btn-decrement btn-spinner"
-                                                        type="button"><i class="icon-minus"></i></button>
-                                            </div>
-                                            <input type="text" style="text-align: center" class="form-control "
-                                                   required= placeholder="" value="1">
-                                            <div class="input-group-append">
-                                                <button style="min-width: 26px" class="btn btn-increment btn-spinner"
-                                                        type="button"><i class="icon-plus"></i></button>
-                                            </div>
-                                        </div>--}}
-                                    </div><!-- End .product-details-quantity -->
-                                </div><!-- End .details-filter-row -->
+                                            {{--                                        <input type="number" id="qty" class="form-control" value="1" min="1" max="10"--}}
+                                            {{--                                               step="1" data-decimals="0" required="" style="">--}}
+                                            {{--<div class="input-group  input-spinner">
+                                                  <div class="input-group-prepend">
+                                                      <button style="min-width: 26px" class="btn btn-decrement btn-spinner"
+                                                              type="button"><i class="icon-minus"></i></button>
+                                                  </div>
+                                                  <input type="text" style="text-align: center" class="form-control "
+                                                         required= placeholder="" value="1">
+                                                  <div class="input-group-append">
+                                                      <button style="min-width: 26px" class="btn btn-increment btn-spinner"
+                                                              type="button"><i class="icon-plus"></i></button>
+                                                  </div>
+                                              </div>--}}
+                                        </div><!-- End .product-details-quantity -->
+                                    </div><!-- End .details-filter-row -->
 
-                                <div class="product-details-action">
-                                    <button class="btn-product btn-cart"><span>add to cart</span></button>
+                                    <div class="product-details-action">
+                                        <button class="btn-product btn-cart"><span>add to cart</span></button>
 
-{{--                                    <div class="details-action-wrapper">--}}
-{{--                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
-{{--                                        <a href="#" class="btn-product btn-compare"--}}
-{{--                                           title="Compare"><span>Add to Compare</span></a>--}}
-{{--                                    </div><!-- End .details-action-wrapper -->--}}
-                                </div><!-- End .product-details-action -->
+                                        {{--                                    <div class="details-action-wrapper">--}}
+                                        {{--                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
+                                        {{--                                        <a href="#" class="btn-product btn-compare"--}}
+                                        {{--                                           title="Compare"><span>Add to Compare</span></a>--}}
+                                        {{--                                    </div><!-- End .details-action-wrapper -->--}}
+                                    </div><!-- End .product-details-action -->
                                 </form>
 
-{{--                                <div class="product-details-footer">--}}
-{{--                                    <div class="product-cat">--}}
-{{--                                        <span>Category:</span>--}}
-{{--                                        <a href="#">Women</a>,--}}
-{{--                                        <a href="#">Dresses</a>,--}}
-{{--                                        <a href="#">Yellow</a>--}}
-{{--                                    </div><!-- End .product-cat -->--}}
+                                {{--                                <div class="product-details-footer">--}}
+                                {{--                                    <div class="product-cat">--}}
+                                {{--                                        <span>Category:</span>--}}
+                                {{--                                        <a href="#">Women</a>,--}}
+                                {{--                                        <a href="#">Dresses</a>,--}}
+                                {{--                                        <a href="#">Yellow</a>--}}
+                                {{--                                    </div><!-- End .product-cat -->--}}
 
-{{--                                    <div class="social-icons social-icons-sm">--}}
-{{--                                        <span class="social-label">Share:</span>--}}
-{{--                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i--}}
-{{--                                                class="icon-facebook-f"></i></a>--}}
-{{--                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i--}}
-{{--                                                class="icon-twitter"></i></a>--}}
-{{--                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i--}}
-{{--                                                class="icon-instagram"></i></a>--}}
-{{--                                        <a href="#" class="social-icon" title="Pinterest" target="_blank"><i--}}
-{{--                                                class="icon-pinterest"></i></a>--}}
-{{--                                    </div>--}}
-{{--                                </div><!-- End .product-details-footer -->--}}
+                                {{--                                    <div class="social-icons social-icons-sm">--}}
+                                {{--                                        <span class="social-label">Share:</span>--}}
+                                {{--                                        <a href="#" class="social-icon" title="Facebook" target="_blank"><i--}}
+                                {{--                                                class="icon-facebook-f"></i></a>--}}
+                                {{--                                        <a href="#" class="social-icon" title="Twitter" target="_blank"><i--}}
+                                {{--                                                class="icon-twitter"></i></a>--}}
+                                {{--                                        <a href="#" class="social-icon" title="Instagram" target="_blank"><i--}}
+                                {{--                                                class="icon-instagram"></i></a>--}}
+                                {{--                                        <a href="#" class="social-icon" title="Pinterest" target="_blank"><i--}}
+                                {{--                                                class="icon-pinterest"></i></a>--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div><!-- End .product-details-footer -->--}}
                             </div><!-- End .product-details -->
 
                         </div><!-- End .col-md-6 -->
@@ -315,24 +326,24 @@
                             <div class="product-desc-content">
                                 <h3>Product Information</h3>
                                 <p>{{$product['product_description']}}</p>
-{{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
-{{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
-{{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
-{{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
-{{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
-{{--                                    vulputate sem tristique cursus. </p>--}}
-{{--                                <ul>--}}
-{{--                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.</li>--}}
-{{--                                    <li>Vivamus finibus vel mauris ut vehicula.</li>--}}
-{{--                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>--}}
-{{--                                </ul>--}}
+                                {{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
+                                {{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
+                                {{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
+                                {{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
+                                {{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
+                                {{--                                    vulputate sem tristique cursus. </p>--}}
+                                {{--                                <ul>--}}
+                                {{--                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit.</li>--}}
+                                {{--                                    <li>Vivamus finibus vel mauris ut vehicula.</li>--}}
+                                {{--                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>--}}
+                                {{--                                </ul>--}}
 
-{{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
-{{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
-{{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
-{{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
-{{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
-{{--                                    vulputate sem tristique cursus. </p>--}}
+                                {{--                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque--}}
+                                {{--                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non,--}}
+                                {{--                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.--}}
+                                {{--                                    Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.--}}
+                                {{--                                    Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula--}}
+                                {{--                                    vulputate sem tristique cursus. </p>--}}
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel"
@@ -362,15 +373,15 @@
                                     </div>
                                 @endif
                                 @foreach($feedback as $f)
-                                <div class="review">
-                                    <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">{{$f['name']}}</a></h4>
-                                            <div class="ratings-container">
-                                                @if($f['rating'] == 5)
-                                                    <div class="ratings">
-                                                        <div class="ratings-val" style="width: 100%;"></div>
-                                                    </div>
+                                    <div class="review">
+                                        <div class="row no-gutters">
+                                            <div class="col-auto">
+                                                <h4><a href="#">{{$f['name']}}</a></h4>
+                                                <div class="ratings-container">
+                                                    @if($f['rating'] == 5)
+                                                        <div class="ratings">
+                                                            <div class="ratings-val" style="width: 100%;"></div>
+                                                        </div>
                                                     @elseif($f['rating'] == 4)
                                                         <div class="ratings">
                                                             <div class="ratings-val" style="width: 80%;"></div>
@@ -387,66 +398,73 @@
                                                         <div class="ratings">
                                                             <div class="ratings-val" style="width: 20%;"></div>
                                                         </div>
-                                                @endif
-{{--                                                    <div class="ratings">--}}
-{{--                                                        <div class="ratings-val" style="width: 80%;"></div>--}}
-{{--                                                        <!-- End .ratings-val -->--}}
-{{--                                                    </div><!-- End .ratings -->--}}
-{{--                                                }--}}
-{{--                                                @endif--}}
-{{--                                                <div class="ratings">--}}
-{{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
-{{--                                                    <!-- End .ratings-val -->--}}
-{{--                                                </div><!-- End .ratings -->--}}
-                                            </div><!-- End .rating-container -->
-{{--                                            <span class="review-date">6 days ago</span>--}}
-                                        </div><!-- End .col -->
-                                        <div class="col">
-                                            <h4>Description</h4>
+                                                    @endif
+                                                    {{--                                                    <div class="ratings">--}}
+                                                    {{--                                                        <div class="ratings-val" style="width: 80%;"></div>--}}
+                                                    {{--                                                        <!-- End .ratings-val -->--}}
+                                                    {{--                                                    </div><!-- End .ratings -->--}}
+                                                    {{--                                                }--}}
+                                                    {{--                                                @endif--}}
+                                                    {{--                                                <div class="ratings">--}}
+                                                    {{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
+                                                    {{--                                                    <!-- End .ratings-val -->--}}
+                                                    {{--                                                </div><!-- End .ratings -->--}}
+                                                </div><!-- End .rating-container -->
+                                                {{--                                            <span class="review-date">6 days ago</span>--}}
+                                            </div><!-- End .col -->
+                                            <div class="col">
+                                                <h4>Description</h4>
 
-                                            <div class="review-content">
-                                                <p>
-                                                    {{$f['feedback_text']}}
-                                                </p>
-{{--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum--}}
-{{--                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa--}}
-{{--                                                    atque blanditiis commodi perspiciatis doloremque, possimus,--}}
-{{--                                                    explicabo, autem fugit beatae quae voluptas!</p>--}}
-                                            </div><!-- End .review-content -->
+                                                <div class="review-content">
+                                                    <p>
+                                                        {{$f['feedback_text']}}
+                                                    </p>
+                                                    {{--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum--}}
+                                                    {{--                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa--}}
+                                                    {{--                                                    atque blanditiis commodi perspiciatis doloremque, possimus,--}}
+                                                    {{--                                                    explicabo, autem fugit beatae quae voluptas!</p>--}}
+                                                </div><!-- End .review-content -->
 
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                            </div><!-- End .review-action -->
+                                                <div class="review-action">
+                                                    <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
+                                                    <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                                                </div><!-- End .review-action -->
 
-                                        </div><!-- End .col-auto -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .review -->
+                                            </div><!-- End .col-auto -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .review -->
                                 @endforeach
-{{--                                action="{{route('feedback.save'), $product['product_id']}}"--}}
-                                <form accept-charset="utf-8" method="post" action="{{route('feedback.save', $product['product_id'])}}" enctype="multipart/form-data">
-{{--                                   @dd($res)--}}
+                                {{--                                action="{{route('feedback.save'), $product['product_id']}}"--}}
+                                <form accept-charset="utf-8" method="post"
+                                      action="{{route('feedback.save', $product['product_id'])}}"
+                                      enctype="multipart/form-data">
+                                    {{--                                   @dd($res)--}}
                                     @csrf
                                     <div class="mb-3">
                                         <label for="text" class="form-label">Add a feedback</label>
-                                        <textarea type="text" name="feedback_text"  class="form-control" required="">Comment... </textarea>
+                                        <textarea type="text" name="feedback_text" class="form-control" required="">Comment... </textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="m-3 mb-1 p-2">Rating</label>
-{{--                                        <span class="form-label mt-2">Rating</span>--}}
+                                        {{--                                        <span class="form-label mt-2">Rating</span>--}}
                                         <div class="rate">
-{{--                                            <label for="password" class="form-label">Rating</label>--}}
-{{--                                            <label for="password" class="m-3 mb-1">Rating</label>--}}
-                                            <label for="star5" title="text" >5 stars</label>
-                                            <input type="radio" id="star5" name="rating" value="5"  class="form-control"/>
+                                            {{--                                            <label for="password" class="form-label">Rating</label>--}}
+                                            {{--                                            <label for="password" class="m-3 mb-1">Rating</label>--}}
+                                            <label for="star5" title="text">5 stars</label>
+                                            <input type="radio" id="star5" name="rating" value="5"
+                                                   class="form-control"/>
                                             <label for="star4" title="text">4 stars</label>
-                                            <input type="radio" id="star4" name="rating" value="4" class="form-control"/>
+                                            <input type="radio" id="star4" name="rating" value="4"
+                                                   class="form-control"/>
                                             <label for="star3" title="text">3 stars</label>
-                                            <input type="radio" id="star3" name="rating" value="3" class="form-control"/>
+                                            <input type="radio" id="star3" name="rating" value="3"
+                                                   class="form-control"/>
                                             <label for="star2" title="text">2 stars</label>
-                                            <input type="radio" id="star2" name="rating" value="2" class="form-control"/>
+                                            <input type="radio" id="star2" name="rating" value="2"
+                                                   class="form-control"/>
                                             <label for="star1" title="text">1 star</label>
-                                            <input type="radio" id="star1" name="rating" value="1" class="form-control"/>
+                                            <input type="radio" id="star1" name="rating" value="1"
+                                                   class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -458,35 +476,35 @@
                                     </div>
                                 </form>
 
-{{--                                <div class="review">--}}
-{{--                                    <div class="row no-gutters">--}}
-{{--                                        <div class="col-auto">--}}
-{{--                                            <h4><a href="#">John Doe</a></h4>--}}
-{{--                                            <div class="ratings-container">--}}
-{{--                                                <div class="ratings">--}}
-{{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
-{{--                                                    <!-- End .ratings-val -->--}}
-{{--                                                </div><!-- End .ratings -->--}}
-{{--                                            </div><!-- End .rating-container -->--}}
-{{--                                            <span class="review-date">5 days ago</span>--}}
-{{--                                        </div><!-- End .col -->--}}
-{{--                                        <div class="col">--}}
-{{--                                            <h4>Very good</h4>--}}
+                                {{--                                <div class="review">--}}
+                                {{--                                    <div class="row no-gutters">--}}
+                                {{--                                        <div class="col-auto">--}}
+                                {{--                                            <h4><a href="#">John Doe</a></h4>--}}
+                                {{--                                            <div class="ratings-container">--}}
+                                {{--                                                <div class="ratings">--}}
+                                {{--                                                    <div class="ratings-val" style="width: 100%;"></div>--}}
+                                {{--                                                    <!-- End .ratings-val -->--}}
+                                {{--                                                </div><!-- End .ratings -->--}}
+                                {{--                                            </div><!-- End .rating-container -->--}}
+                                {{--                                            <span class="review-date">5 days ago</span>--}}
+                                {{--                                        </div><!-- End .col -->--}}
+                                {{--                                        <div class="col">--}}
+                                {{--                                            <h4>Very good</h4>--}}
 
-{{--                                            <div class="review-content">--}}
-{{--                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum--}}
-{{--                                                    blanditiis laudantium iste amet. Cum non voluptate eos enim, ab--}}
-{{--                                                    cumque nam, modi, quas iure illum repellendus, blanditiis--}}
-{{--                                                    perspiciatis beatae!</p>--}}
-{{--                                            </div><!-- End .review-content -->--}}
+                                {{--                                            <div class="review-content">--}}
+                                {{--                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum--}}
+                                {{--                                                    blanditiis laudantium iste amet. Cum non voluptate eos enim, ab--}}
+                                {{--                                                    cumque nam, modi, quas iure illum repellendus, blanditiis--}}
+                                {{--                                                    perspiciatis beatae!</p>--}}
+                                {{--                                            </div><!-- End .review-content -->--}}
 
-{{--                                            <div class="review-action">--}}
-{{--                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>--}}
-{{--                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>--}}
-{{--                                            </div><!-- End .review-action -->--}}
-{{--                                        </div><!-- End .col-auto -->--}}
-{{--                                    </div><!-- End .row -->--}}
-{{--                                </div><!-- End .review -->--}}
+                                {{--                                            <div class="review-action">--}}
+                                {{--                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>--}}
+                                {{--                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>--}}
+                                {{--                                            </div><!-- End .review-action -->--}}
+                                {{--                                        </div><!-- End .col-auto -->--}}
+                                {{--                                    </div><!-- End .row -->--}}
+                                {{--                                </div><!-- End .review -->--}}
                             </div><!-- End .reviews -->
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
@@ -519,14 +537,15 @@
                 </div><!-- End .product-price -->
                 <div class="product-details-quantity">
                     <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="10" step="1"
-                           data-decimals="0" required="" style="display: none;" >
+                           data-decimals="0" required="" style="display: none;">
                     <div class="input-group  input-spinner">
                         <div class="input-group-prepend">
                             <button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button"><i
                                     class="icon-minus"></i></button>
                         </div>
-                        <input type="text" style="text-align: center" class="form-control " required="" placeholder="" value="1">
-                        <div class="input-group-append"  >
+                        <input type="text" style="text-align: center" class="form-control " required="" placeholder=""
+                               value="1">
+                        <div class="input-group-append">
                             <button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button"><i
                                     class="icon-plus"></i></button>
                         </div>
@@ -535,7 +554,7 @@
 
                 <div class="product-details-action">
                     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-{{--                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
+                    {{--                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>--}}
                 </div><!-- End .product-details-action -->
             </div><!-- End .col-6 -->
         </div><!-- End .row -->

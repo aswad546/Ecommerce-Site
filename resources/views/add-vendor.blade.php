@@ -200,13 +200,27 @@
                                         <input type="text" name="name" placeholder="Vendor Name" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
+                                        <label for="register-password" class="form-label">Vendor Password</label>
+                                        <input type="password" class="password form-control" id="register-password" name="password" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="security-question">Security Question *</label>
+                                        <select class="form-control" id="security-question"
+                                                name="security_question" required="">
+                                            <option value="" selected>Select an option</option>
+                                            <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+                                            <option value="Mothers Maiden Name?">Mothers Maiden Name?</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="security-answer">Answer *</label>
+                                        <input type="text" class="form-control" id="security-answer"
+                                               name="security_answer" required="">
+                                    </div><!-- End .form-group -->
+                                    <div class="mb-3">
                                         <label for="password" class="form-label">Vendor Address</label>
                                         <input type="text" name="address" placeholder="Vendor Address" class="form-control" required>
                                     </div>
-                                    {{--<div class="form-group">
-                                        <label for="register-password">Vendor Password</label>
-                                        <input type="password" class="password" id="register-password" name="password" required="">
-                                    </div>--}}
                                     <div class="mb-3">
                                         <button class="btn btn-primary" type="submit">
                                             Add Vendor

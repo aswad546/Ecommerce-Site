@@ -48,7 +48,7 @@
                                                 Me</label>
                                         </div><!-- End .custom-checkbox -->
 
-                                        <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                        <a href="{{route('forgot.password.email.form.show')}}" class="forgot-link">Forgot Your Password?</a>
                                     </div><!-- End .form-footer -->
                                 </form>
                                 <!-- End .form-choice -->
@@ -74,8 +74,23 @@
                                             <option value="" selected>Select an option</option>
                                             <option value="vendor">Vendor</option>
                                             <option value="user">User</option>
+                                            <option value="admin">Admin</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="security-question">Security Question *</label>
+                                        <select class="form-control" id="security-question"
+                                                name="security_question" required="">
+                                            <option value="" selected>Select an option</option>
+                                            <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+                                            <option value="Mothers Maiden Name?">Mothers Maiden Name?</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="security-answer">Answer *</label>
+                                        <input type="text" class="form-control" id="security-answer"
+                                               name="security_answer" required="">
+                                    </div><!-- End .form-group -->
                                     <div class="form-group">
                                         <label for="register-address">Address *</label>
                                         <input type="text" class="form-control" id="register-address"

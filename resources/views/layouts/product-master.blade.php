@@ -116,7 +116,8 @@
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
 
-                                    <span class="cart-total-price">${{number_format((float)$total_price, 2, '.', '')}}</span>
+                                    <span
+                                        class="cart-total-price">${{number_format((float)$total_price, 2, '.', '')}}</span>
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
@@ -145,20 +146,41 @@
                                             <a href="{{route('show.products')}}"><span
                                                     class="cart-txt">My Products</span></a>
                                         </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.vendor.transactions')}}"><span
+                                                    class="cart-txt">Transaction History</span></a>
+                                        </div><!-- End .product -->
                                     @endif
                                     @if($res['user_roles'] == "user")
                                         <div class="product">
                                             <a href="{{route('upgrade.account')}}"><span class="cart-txt">Upgrade Account</span></a>
+                                        </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.wallet')}}"><span class="cart-txt">Wallet</span></a>
                                         </div><!-- End .product -->
                                     @endif
                                     @if($res['user_roles'] == "premiumuser")
                                         <div class="product">
                                             <a href="#"><span class="cart-txt"><i class="fa-chess-king"></i>Premium Account</span></a>
                                         </div><!-- End .product -->
+                                        <div class="product">
+                                            <a href="{{route('show.wallet')}}"><span class="cart-txt">Wallet</span></a>
+                                        </div><!-- End .product -->
                                     @endif
+                                    @if($res['user_roles'] == "premiumuser" || $res['user_roles'] == "user")
+                                        <div class="product">
+                                            <a href="{{route('show.orders')}}"><span
+                                                    class="cart-txt">Current Orders</span></a>
+                                        </div><!-- End .product -->
+                                    @endif
+                                    <div class="product">
+                                        <a href="{{route('show.transaction.history')}}"><span
+                                                class="cart-txt">History</span></a>
+                                    </div><!-- End .product -->
                                     <div class="product">
                                         <a href="{{route('logout')}}"><span class="cart-txt">Logout</span></a>
                                     </div><!-- End .product -->
+
                                 </div><!-- End .cart-product -->
 
                             </div><!-- End .dropdown-menu -->
@@ -408,9 +430,9 @@
 
                             <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up">Back to Top</i>
                             </button>
-                            @include('layouts.partials.success-modal')
+                        @include('layouts.partials.success-modal')
 
-                            <!-- End .main -->
+                        <!-- End .main -->
 
                             <!-- End .footer -->
                         </div><!-- End .page-wrapper -->
@@ -622,19 +644,18 @@
                             </div><!-- End .mobile-menu-wrapper -->
                         </div><!-- End .mobile-menu-container -->
 
-                    @include('layouts.partials.sign-up-modal')
+                        @include('layouts.partials.sign-up-modal')
                         <script>
                             const add_cart = document.querySelector('.owl-stage-outer');
                             const success_modal = document.getElementById('success_modal');
                             const dropdown_cart = document.querySelector('.dropdown-cart-products');
-                            const addToCart = async function(e){
+                            const addToCart = async function (e) {
                                 console.log(e.target);
-                                if(e.target.classList.contains('add_cart') || e.target.parentElement.classList.contains('add_cart'))
-                                {
+                                if (e.target.classList.contains('add_cart') || e.target.parentElement.classList.contains('add_cart')) {
                                     const id = e.target.getAttribute('data-id');
                                     const data = {
                                         id,
-                                        qty : 1
+                                        qty: 1
                                     };
                                     const uri = `/add-to-cart`;
                                     const options = {
@@ -649,14 +670,13 @@
                                     try {
                                         const response = await fetch(uri, options);
                                         const discount = await response.json();
-                                        if(discount.success){
+                                        if (discount.success) {
                                             success_modal.click();
                                         }
                                         if (discount.fail) {
                                             alert('failed to apply promocode');
                                         }
-                                    }
-                                    catch(err) {
+                                    } catch (err) {
                                         console.log(err);
                                         alert('failed to add to cart');
                                     }
@@ -665,7 +685,7 @@
                             // console.log(add_cart);
                             add_cart.addEventListener('click', addToCart);
                         </script>
-                    <!-- Plugins JS File -->
+                        <!-- Plugins JS File -->
                         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
                         <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
                         <script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>

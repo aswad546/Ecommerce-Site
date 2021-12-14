@@ -86,9 +86,10 @@ class VendorController extends Controller
             $destinationPath = public_path('\assets\images');
 
             $request->file('product_image')->move($destinationPath, $name);
+            $featured = $request->featured;
 
             $sql = "INSERT INTO products
-                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', '$request->category', '$request->description',  $id, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', '$request->category', '$featured', '$request->description',  $id, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $conn = null;
         }
@@ -198,7 +199,6 @@ class VendorController extends Controller
 
     public function exportAllTransactions(): BinaryFileResponse
     {
-
         return Excel::download(new TransactionExport(2018), 'transaction_history.xlsx');
     }
 
