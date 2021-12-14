@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Connection\connection;
 use App\Exports\TransactionExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use PDO;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -83,13 +84,16 @@ class VendorController extends Controller
             $id = session('user_id');
             $name = round(microtime(true) * 10000) . '_' . $id . '.' . $request->file('product_image')->getClientOriginalExtension();
 
-            $destinationPath = public_path('\assets\images');
+//            $destinationPath = public_path('\assets\images');
 
-            $request->file('product_image')->move($destinationPath, $name);
+//            $request->file('product_image')->move($destinationPath, $name);
+            $path = Storage::disk('s3')->put('images', $request->product_image);
+            $path = Storage::disk('s3')->url($path);
+
             $featured = $request->featured;
 
             $sql = "INSERT INTO products
-                    VALUES (DEFAULT, '$request->product_name', '$name', '$request->quantity', '$request->price', '$request->category', '$featured', '$request->description',  $id, DEFAULT, DEFAULT);";
+                    VALUES (DEFAULT, '$request->product_name', '$path', '$request->quantity', '$request->price', '$request->category', '$featured', '$request->description',  $id, DEFAULT, DEFAULT);";
             $conn->exec($sql);
             $conn = null;
         }
