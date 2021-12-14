@@ -10,12 +10,11 @@ class connection
     public static function connect_db()
     {
         $DATABASE_URL=parse_url('DATABASE_URL');
-        $host = $DATABASE_URL['host'] ?? null;
-        $port = $DATABASE_URL['port'] ?? null;
-        $dsn = "pgsql:host=$host;port=$port;dbname=d754dl5hoij408;";
-        $servername = "localhost";
-        $username = $DATABASE_URL['user'] ?? null;
-        $password = $DATABASE_URL['pass'] ?? null;
+        $host = "ec2-34-233-192-238.compute-1.amazonaws.com";
+        $db = "d754dl5hoij408";
+        $dsn = "pgsql:host=$host;port=5432;dbname=$db;";
+        $username = 'wgszyqmhcmblyq';
+        $password = '699e50532a1fc6b3dfe7fc0a5f59ff29acc3173c6de7697da9d522892251e56a';
         $conn = "";
         try {
             $conn = new PDO($dsn, $username, $password);
