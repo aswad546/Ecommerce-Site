@@ -113,7 +113,7 @@
                             <tr>
                                 <td>{{$product['product_id']}}</td>
                                 <td>{{$product['product_name']}}</td>
-                                <td><img style="width: 100px" src="{{$product['product_image']}}"></td>
+                                <td><img style="width: 100px" src="{{Storage::disk('s3')->url('images/'.$product['product_image'])}}"></td>
                                 <td>${{number_format((float)$product['price'], 2, '.', '')}}</td>
                             </tr>
                         @endforeach

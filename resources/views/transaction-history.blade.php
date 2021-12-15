@@ -94,8 +94,11 @@
                 <h3>Transaction history
                     <!-- <a href="roles.html" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-user-shield"></i> Roles</a> -->
                 </h3>
+                <a href="{{route('transaction.history.export')}}"
+                   class="btn btn-outline-success btn-rounded">Export Transaction History</a>
+                <div class="box box-primary">
             </div>
-            <div class="box box-primary">
+
                 <div class="box-body">
                     <table width="100%" class="table table-hover" id="dataTables-example">
                         <thead>
